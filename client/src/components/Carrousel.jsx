@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react'
 
-function Carrousel (images){
+function Carrousel ({images}){
     const [currentIndex, setCurrentIndex] = useState(0);
   
     const goToNextSlide = () => {
