@@ -12,6 +12,7 @@ import { AuthProvider } from "./context/AuthContext"
 import { TaskProvider } from "./context/TaskContext";
 import NavBar from "./components/NavBar"
 import ContactPage from "./pages/ContactPage"
+import LogoutPage from "./pages/logoutPage"
 
 function App ()
 {
@@ -30,6 +31,7 @@ function App ()
 
               <Route element={ <ProtectedRoute /> }>
                 <Route path="/obras" element={ <ObrasPage /> } />
+                <Route path="/logout" element={ <LogoutPage /> } />
                 <Route path="/add-obra" element={ <ObrasFormPage /> } />
                 <Route path="/obras/:id" element={ <ObrasFormPage /> } />
                 <Route path="/profile" element={ <ProfilePage /> } />

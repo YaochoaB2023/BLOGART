@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
-import { loginRequest, registerRequest, verifyTokenRequest } from "../api/auth";
+import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest } from "../api/auth";
 import Cookies from 'js-cookie'
 
 export const AuthContext = createContext()
@@ -61,6 +61,16 @@ export const AuthProvider = ( { children } ) =>
         }
     }
 
+    const logOut = async () => {
+        try {
+            await logoutRequest();
+            setIsAuthenticathed(false);
+            setUser(null);
+        } catch (error) {
+            console.error("error durin logout", error)
+        }
+    }
+
     useEffect( () =>
     {
         if ( errors.length > 0 )
@@ -114,6 +124,7 @@ export const AuthProvider = ( { children } ) =>
         <AuthContext.Provider value={ {
             signup,
             signin,
+            logOut,
             user,
             isAuthenticathed,
             errors,
