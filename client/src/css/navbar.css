@@ -1,0 +1,6 @@
+.principal{width: 100%;}
+.container{display:flex; align-items: center;}
+.titulo1{font-size: 35px;}
+.navegador ul{display:flex;padding-left: 550px;}
+.navegador ul li{padding: 0px 0px 0px 30px;display: flex;align-items: center;}
+.logo{margin: 0px 5px 0px 0px;}

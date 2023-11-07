@@ -1,0 +1,10 @@
+.contenedor{display: flex; align-content: center;justify-content: center;}
+.imagen{width: 1000px;height: 500px;}
+.cuadro-1{width: 940px;height: 300px;border: 1px solid  rgb(219, 233, 219) ;margin: 30px;padding: 50px;border-radius: 15px;}
+.titulo{font-size: 35px; font-weight: 600;}
+.texto{width: 330px;font-size: 15px;}
+.imagen1{height: 50px;}
+.cuadro-2{width: 940px;height: 300px;border: 1px solid  rgb(219, 233, 219) ;margin: 30px;padding: 50px;border-radius: 15px;}
+.imagen1{height: 50px;}
+.carousel {display: flex;align-items: center;justify-content: center;margin-left: 250px;transition: transform 0.5s ease-in-out;} 
+.carousel img {height: 250px;width: 260px;border-radius: 7px;}

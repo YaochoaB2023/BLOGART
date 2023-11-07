@@ -1,0 +1,20 @@
+.registrate{display: flex; align-content: center;justify-content: center;margin-top: 40px;}
+.form1 {display: flex;flex-direction: column;gap: 10px;max-width: 350px;padding: 20px;border-radius: 20px;color: #000000;border: 1px solid  rgb(219, 233, 219);margin-top: 20px;}
+.title1 {font-size: 35px;font-weight: 600;text-align: center;color: #000000;}
+.title1::before {width: 18px;height: 18px;}
+.title1::after {width: 18px;height: 18px;animation: pulse 1s linear infinite;}
+.signin1 {font-size: 14.5px;color: rgba(0, 0, 0, 0.7);}
+.signin1 {text-align: center;}
+.signin1 a:hover {  text-decoration: underline royalblue;}
+.signin1 a {color: #00bfff;}
+.nom-ape {display: flex;width: 100%;gap: 6px;}
+.form1 label {position: relative;}
+.form1 label .input1 {padding: 10px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.2);margin-bottom: 20px;outline: 0;width: 100%;background-color: transparent;}
+.form1 label .input1 + .letra {color: rgb(99, 102, 102);position: absolute;left: 10px;background-color: #fff;transition: all .3s ease;}
+.form1 label .input1:placeholder-shown + .letra {top: 12.5px;font-size: 0.9em;}
+.form1 label .input1:focus + .letra,.form1 label .input1:valid + .letra {color: rgb(99, 102, 102);top: -10px;font-size: 14px;font-weight: 600;}
+.input1 {font-size: medium;}
+.boton1 {border: none;outline: none;padding: 10px;border-radius: 10px;color: #fff;font-size: 16px;transform: .3s ease;background-color: #3366cc;}
+.boton1:hover {background-color: #27408b;}
+@keyframes pulse {from {transform: scale(0.9);opacity: 1;}
+to{transform: scale(1.8);opacity: 0;}}

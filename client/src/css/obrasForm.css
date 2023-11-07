@@ -1,0 +1,21 @@
+.FormularioObras{display: flex; align-content: center;justify-content: center;margin-top: 40px;}
+.title1{text-align: center;}
+.card2{display: flex;flex-direction: column;gap: 10px;width: 350px;padding: 20px;border-radius: 20px;color: #000000;border: 1px solid  rgb(219, 233, 219);margin-top: 20px;}
+.form3 {display: flex;flex-direction: column;}
+.group {position: relative;}
+.form3 .group label {font-size: 14px;color: rgb(99, 102, 102);position: absolute;top: -10px;left: 10px;background-color: #fff;transition: all .3s ease;}
+.form3 .group input,.form3 .group textarea {padding: 10px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.2);margin-bottom: 20px;outline: 0;width: 100%;background-color: transparent;}
+.form3 .group input:placeholder-shown+ label, .form3 .group textarea:placeholder-shown +label {top: 10px;background-color: transparent;}
+.form3 .group input:focus,.form3 .group textarea:focus {border-color: rgba(105, 105, 105, 0.397);}
+.form3 .group input:focus+ label, .form3 .group textarea:focus +label {top: -10px;left: 10px;background-color: #fff;color: rgba(0, 0, 0, 0.397);font-weight: 600;font-size: 14px;}
+.form3 .group textarea {resize: none;height: 100px;}
+.form3 label {position: relative;}
+.form3 label .input1 {padding: 10px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.2);margin-bottom: 20px;outline: 0;width: 100%;background-color: transparent;}
+.form3 label .input1 + .letra {color: rgb(99, 102, 102);position: absolute;left: 10px;background-color: #fff;transition: all .3s ease;}
+.form3 label .input1:placeholder-shown + .letra {top: 12.5px;font-size: 0.9em;}
+.form3 label .input1:focus + .letra,.form1 label .input1:valid + .letra {color: rgb(99, 102, 102);top: -10px;font-size: 14px;font-weight: 600;}
+.input1 {font-size: medium;}
+.boton1{background-color: #3366cc;color: #fff;border: none;border-radius: 5px;padding: 10px;font-size: 16px;cursor: pointer;transition: all 0.3s ease;}
+.boton1:hover {background-color: #27408b;}
+.boton3{margin-left: 140px;background-color: #3366cc;color: #fff;border: none;border-radius: 5px;padding: 10px;font-size: 16px;cursor: pointer;transition: all 0.3s ease;}
+.boton3:hover {background-color: #27408b;}

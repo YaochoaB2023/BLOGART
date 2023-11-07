@@ -1,0 +1,13 @@
+.titulo1{text-align: center;font-size: 35px; font-weight: 600;}
+.container{display:flex;justify-content:space-around;}
+.cuadro{height: 520px;width: 30%;margin: 0 auto;background-color: #F8FBFE;border-radius: 18px;z-index: 1;margin-top: 30px;border: 1px solid  rgb(219, 233, 219);margin-left: 50px; }
+.Mona{display: flex;align-items: center;}
+.Monalisa{height: 230px;width: 230px;padding: 15px;border-radius: 20px;}
+.nombre,.descripcion,.propetario,.precio{padding: 3px 10px 0px 10px;font-size: 15px;color: black;}
+.boton {background: #fff;border: none;padding: 0;display: inline-block;font-size: 15px;font-weight: 600;width: 110px;
+height: 30px;text-transform: uppercase;cursor: pointer; padding-top: 2px;
+transform: skew(-21deg);margin-left: 250px;text-align: center;}
+.boton::before {content: ''; position: absolute;top: 0;bottom: 0;right: 100%;left: 0;background: rgb(20, 20, 20);opacity: 0;
+z-index: -1;transition: all 0.5s;}
+.boton:hover {color: #fff;}
+.boton:hover::before {left: 0;right: 0;opacity: 1;}

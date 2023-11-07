@@ -1,0 +1,15 @@
+.Login{display: flex; align-content: center;justify-content: center;margin-top: 40px;}
+.form2 {display: flex;flex-direction: column;gap: 10px;width: 350px;padding: 20px;border-radius: 20px;color: #000000;border: 1px solid  rgb(219, 233, 219);margin-top: 20px;}
+.title2 {font-size: 35px;font-weight: 600;text-align: center;color: #000000;}
+.title1::before {width: 18px;height: 18px;}
+.title1::after {width: 18px;height: 18px;animation: pulse 1s linear infinite;}
+.form2 label {position: relative;}
+.form2 label .input2 {padding: 10px;border-radius: 5px;border: 1px solid rgba(0, 0, 0, 0.2);margin-bottom: 20px;outline: 0;width: 100%;background-color: transparent;}
+.form2 label .input2 + .letra1 {color: rgb(99, 102, 102);position: absolute;left: 10px;background-color: #fff;transition: all .3s ease;}
+.form2 label .input2:placeholder-shown + .letra1 {top: 12.5px;font-size: 0.9em;}
+.form2 label .input2:focus + .letra1,.form2 label .input2:valid + .letra1 {color: rgb(99, 102, 102);top: -10px;font-size: 14px;font-weight: 600;}
+.input2 {font-size: medium;}
+.boton2 {border: none;outline: none;padding: 10px;border-radius: 10px;color: #fff;font-size: 16px;transform: .3s ease;background-color: #3366cc;}
+.boton2:hover {background-color: #27408b;}
+@keyframes pulse {from {transform: scale(0.9);opacity: 1;}
+to{transform: scale(1.8);opacity: 0;}}
