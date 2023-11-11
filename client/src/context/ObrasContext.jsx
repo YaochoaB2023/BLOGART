@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
-import { createObraRequest, getObrasRequest } from "../api/obra";
+import { createObraRequest, getObrasRequest, getAllObrasRequest, updateObraRequest } from "../api/obra";
 
 const ObrasContext = createContext()
 
@@ -31,11 +31,32 @@ export function ObraProvider ( { children } )
         }
     }
 
+    const getAllObras = async () => {
+        try {
+            const res = await getAllObrasRequest()
+            setObras(res.data)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const createObra = async (obra) => {
         try {
-            console.log('obra created')
             const res = await createObraRequest(obra)
+            console.log('obra created')
             console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const updateObra = async (id, obra) => {
+        try {
+            const res = await updateObraRequest(id, obra)
+            console.log('obra updated')
+            console.log(res)
+            getAllObras()
         } catch (error) {
             console.log(error)
         }
@@ -48,6 +69,8 @@ export function ObraProvider ( { children } )
             obras,
             createObra,
             getObras,
+            getAllObras,
+            updateObra
 
         } }>
             { children }
