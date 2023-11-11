@@ -8,8 +8,8 @@ import ProfilePage from "./pages/ProfilePage"
 import HomePage from "./pages/HomePage"
 import ProtectedRoute from "./ProtectedRoute"
 
-import { AuthProvider } from "./context/AuthContext"
-import { TaskProvider } from "./context/TaskContext";
+import { AuthProvider } from "./context/authContext"
+import { ObraProvider } from "./context/ObrasContext";
 import NavBar from "./components/NavBar"
 import ContactPage from "./pages/ContactPage"
 import LogoutPage from "./pages/logoutPage"
@@ -19,7 +19,7 @@ function App ()
   return (
     <>
       <AuthProvider>
-        <TaskProvider >
+        <ObraProvider >
           <BrowserRouter>
           <NavBar/>
             <Routes>
@@ -38,7 +38,7 @@ function App ()
               </Route>
             </Routes>
           </BrowserRouter>
-        </TaskProvider>
+        </ObraProvider>
       </AuthProvider>
 
     </>

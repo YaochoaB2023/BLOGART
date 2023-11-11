@@ -36,7 +36,9 @@ export const createTask = async ( req, res ) =>
         res.status( 200 ).json( savedTask )
     } catch ( error )
     {
-        res.status( 500 ).json( { message: error.message } )
+        console.error('Error creating task:', error);
+        res.status(500).json({ message: 'Internal Server Error', error: error.message });
+        // res.status( 500 ).json( { message: error.message } )
     }
 
 }

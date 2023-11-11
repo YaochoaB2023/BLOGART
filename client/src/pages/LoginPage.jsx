@@ -18,7 +18,7 @@ function LoginPage ()
   const onSubmited = handleSubmit( async ( data ) =>
   {
     signin( data )
-  } )
+  })
 
   return (
     <> 
@@ -43,7 +43,7 @@ function LoginPage ()
         {
           signinErrors.map( ( error, i ) => (
             <div className='bg-red-500 text-white p-2 my-2 mb-5' key={ i }>
-              <h1>{ error } error en credenciales</h1>
+              <h1>{ error }</h1>
             </div>
           ) )
         }
