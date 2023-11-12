@@ -1,24 +1,25 @@
 import '../css/obrasForm.css'
 import { useForm } from "react-hook-form";
-import { useEffect } from 'react';
 import { useObras } from "../context/ObrasContext";
 import { useNavigate } from 'react-router-dom';
 
-const ObraFormPage = () =>
-{
+const ObraFormPage = () => {
 
   const { register, handleSubmit } = useForm();
   const {createObra} = useObras();
   const navigate = useNavigate();
 
   const onSubmited = handleSubmit((data) => {
-    createObra(data)
-    console.log(data)
+    try {
+      createObra(data)
+      console.log('obra created',data)
+      navigate('/obras')
+    } catch (error) {
+      console.error('error al crear la obra', error)
+    }
   }) 
 
-  useEffect(() => {
-    if(createObra)(navigate('/add-obra'))
-  },[createObra, navigate])
+
 
   return (
     <>

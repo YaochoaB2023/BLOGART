@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
-import { createObraRequest, getObrasRequest, getAllObrasRequest, updateObraRequest } from "../api/obra";
+import { createObraRequest, getObrasRequest, getAllObrasRequest, updateObraRequest, deleteObraRequest } from "../api/obra";
 
 const ObrasContext = createContext()
 
@@ -62,7 +62,15 @@ export function ObraProvider ( { children } )
         }
     }
 
-    
+    const deleteObra = async (id) => {
+        try {
+            const res = await deleteObraRequest(id)
+            console.log('obra deleted')
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <ObrasContext.Provider value={ {
@@ -70,7 +78,8 @@ export function ObraProvider ( { children } )
             createObra,
             getObras,
             getAllObras,
-            updateObra
+            updateObra, 
+            deleteObra
 
         } }>
             { children }

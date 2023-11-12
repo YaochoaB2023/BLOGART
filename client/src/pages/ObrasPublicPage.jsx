@@ -6,20 +6,22 @@ import { useObras } from '../context/ObrasContext'
 const ObrasPublicPage = () => {
 
   const {obras, getAllObras} = useObras();
-  
+
 
   console.log(obras)
   useEffect(() => {
       getAllObras()
   },[])
 
+
+
   return (
     <>
       <div className="Obras">
         <h1 className="titulo1">Obras</h1>
         <div className="container">
-          {obras.map((obra) => (
-            <div key={obra.id} className="cuadro">
+          {obras.map((obra, index) => (
+            <div key={obra.id || index} className="cuadro">
               <div className="Mona flex flex-col">
                 <img src={Monalisa} className="Monalisa" />
               </div>
@@ -50,6 +52,8 @@ const ObrasPublicPage = () => {
           ))}
         </div>
       </div>
+
+
     </>
   )
 }
