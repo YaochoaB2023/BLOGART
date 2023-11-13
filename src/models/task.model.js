@@ -13,7 +13,7 @@ const taskSchema = new mongoose.Schema( {
         type: String
     },
     precio: {
-        type: String,
+        type: Number,
         required: true
     },
     date: {

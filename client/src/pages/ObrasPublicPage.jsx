@@ -8,7 +8,7 @@ const ObrasPublicPage = () => {
   const {obras, getAllObras} = useObras();
 
 
-  console.log(obras)
+  // console.log(obras)
   useEffect(() => {
       getAllObras()
   },[])

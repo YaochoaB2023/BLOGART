@@ -7,13 +7,14 @@ const ObrasPage = () => {
   const { obras, getObras, updateObra, deleteObra } = useObras();
   const [isModalOpen, setModalOpen] = useState(null);
   const [selectedObra, setSelectedObra] = useState(null);
+  
   const [updatedData, setUpdatedData] = useState({
     nombre: "",
     descripcion: "",
-    precio: 0
+    precio: 0,
   });
 
-  console.log(obras);
+  // console.log(obras);
   useEffect(() => {
     getObras();
   }, []);
@@ -25,7 +26,7 @@ const ObrasPage = () => {
     setUpdatedData({
       nombre: obra.nombre,
       descripcion: obra.descripcion,
-      precio: obra.precio
+      precio: obra.precio,
     });
   };
 
@@ -36,32 +37,34 @@ const ObrasPage = () => {
 
   const handleUpdateObra = async () => {
     try {
-       if (selectedObra) {
-          await updateObra(selectedObra._id, updatedData);
-          console.log('obra actualizada con éxito')
-          closeModal();
-          getObras();
-       } else {
-          console.error('No se ha seleccionado ninguna obra para actualizar.');
-       }
+      if (selectedObra) {
+        await updateObra(selectedObra._id, updatedData);
+        console.log("obra actualizada con éxito");
+        closeModal();
+        getObras();
+      } else {
+        console.error("No se ha seleccionado ninguna obra para actualizar.");
+      }
     } catch (error) {
-       console.error('Error al actualizar la obra', error);
+      console.error("Error al actualizar la obra", error);
     }
- };
+  };
 
- const handleDeleteObra = async (obraId) => {
-  const isConfirmed = window.confirm('Estas seguro de que quieres eliminar esta obra?')
-  if(isConfirmed){
-    try {
-      await deleteObra(obraId)
-      console.log('obra deleted')
-      getObras()
-    } catch (error) {
-      console.log(error)
+  const handleDeleteObra = async (obraId) => {
+    const isConfirmed = window.confirm(
+      "Estas seguro de que quieres eliminar esta obra?"
+    );
+    if (isConfirmed) {
+      try {
+        await deleteObra(obraId);
+        console.log("obra deleted");
+        getObras();
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
-  console.log('eliminacion cancelada por el usuario')
- }
+    console.log("eliminacion cancelada por el usuario");
+  };
 
   return (
     <>
@@ -89,7 +92,9 @@ const ObrasPage = () => {
                 <button onClick={() => openModal(obra)}>Editar</button>
               </div>
               <div className="boton ">
-                <button onClick={() => handleDeleteObra(obra._id)}>Eliminar</button>
+                <button onClick={() => handleDeleteObra(obra._id)}>
+                  Eliminar
+                </button>
               </div>
             </div>
           ))}
@@ -114,7 +119,10 @@ const ObrasPage = () => {
               <textarea
                 value={updatedData.descripcion}
                 onChange={(e) =>
-                  setUpdatedData({ ...updatedData, descripcion: e.target.value })
+                  setUpdatedData({
+                    ...updatedData,
+                    descripcion: e.target.value,
+                  })
                 }
               />
             </label>
