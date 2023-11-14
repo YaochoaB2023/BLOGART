@@ -28,11 +28,12 @@ export const getTask = async ( req, res ) =>
 
 export const createTask = async ( req, res ) =>
 {
-
     try
     {
+        console.log('creando tarea')
+        const { nombre, descripcion, precio, date } = req.body
 
-        const { nombre, descripcion, precio, Urlimagen, date } = req.body
+        const Urlimagen = req.file ? req.file.path: null;
 
         const newTask = new Task( {
             nombre,
@@ -44,6 +45,7 @@ export const createTask = async ( req, res ) =>
         } )
 
         const savedTask = await newTask.save()
+        console.log('tarea creada con exito', savedTask)
         res.status( 200 ).json( savedTask )
     } catch ( error )
     {

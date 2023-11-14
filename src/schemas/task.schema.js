@@ -8,7 +8,7 @@ export const createTaskSchema = z.object( {
         required_error: "Description is required"
     } ),
     Urlimagen: z.string().optional(),
-    precio: z.number( {
+    precio: z.string( {
         required_error: "Description is required"
     } ),
     date: z.string().datetime().optional()
