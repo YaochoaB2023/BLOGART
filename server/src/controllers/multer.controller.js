@@ -16,4 +16,15 @@ const storage = multer.diskStorage({
     },
 });
 
+export const uploadImage = (req, res) => {
+  upload.single('file')(req, res, (err) => {
+      if (err) {
+          return res.status(500).json({ error: err.message });
+      }
+
+      // Devuelve el nombre del archivo en la respuesta
+      res.status(200).json({ filename: req.file.filename });
+  });
+};
+
 export const upload = multer({storage:storage})

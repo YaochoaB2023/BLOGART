@@ -1,5 +1,5 @@
 import "../css/obrasPublic.css";
-import Monalisa from "../images/la-monalisa.jpeg";
+// import Monalisa from "../images/la-monalisa.jpeg";
 import { useEffect, useState } from "react";
 import { useObras } from "../context/ObrasContext";
 
@@ -74,7 +74,10 @@ const ObrasPage = () => {
           {obras.map((obra, index) => (
             <div key={obra.id || index} className="cuadro">
               <div className="Mona flex flex-col">
-                <img src={Monalisa} className="Monalisa" />
+                <img            
+                src={`http://localhost:5000/${obra.Urlimagen}`}
+                className="Monalisa"
+                style={{ width: '100%', height: '100%' }} />
               </div>
               <h1 className="nombre">
                 <div className=" font-bold">Nombre:</div>

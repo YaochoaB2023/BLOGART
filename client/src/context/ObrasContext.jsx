@@ -25,7 +25,7 @@ export function ObraProvider ( { children } )
         try {
             const res = await getObrasRequest()
             setObras( res.data)
-            // console.log(res)
+            console.log(res)
         } catch (error) {
             console.log(error)
         }
