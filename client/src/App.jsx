@@ -26,7 +26,7 @@ function App ()
               <Route path="/" element={ <HomePage /> } />
               <Route path="/login" element={ <LoginPage /> } />
               <Route path="/register" element={ <RegisterPage /> } />
-              <Route path="/ObrasPulic" element={ <ObrasPublicPage /> } />
+              <Route path="/ObrasPublic" element={ <ObrasPublicPage /> } />
               <Route path="/Contact" element={ <ContactPage /> } />
 
               <Route element={ <ProtectedRoute /> }>
