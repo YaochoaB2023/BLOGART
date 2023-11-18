@@ -32,8 +32,8 @@ export const AuthProvider = ( { children } ) =>
         {
             const res = await registerRequest( user )
             console.log( res )
-            setUser( res.data )
             setIsAuthenticathed( true )
+            setUser( res.data )
         } catch ( error )
         {
             setErrors( error.response.data )
@@ -87,9 +87,9 @@ export const AuthProvider = ( { children } ) =>
     {
         async function checkLogin ()
         {
-            const cookies = Cookies.get()
+            const token = Cookies.get('token')
 
-            if ( !cookies.token )
+            if ( !token )
             {
                 setIsAuthenticathed( false )
                 setLoading(false)
@@ -97,7 +97,7 @@ export const AuthProvider = ( { children } ) =>
             }
             try
             {
-                const res = await verifyTokenRequest( cookies.token )
+                const res = await verifyTokenRequest( token )
                 // console.log( res )
                 if ( !res.data )
                 {
