@@ -7,7 +7,7 @@ import ObrasFormPage from "./pages/ObrasFormPage"
 import ProfilePage from "./pages/ProfilePage"
 import HomePage from "./pages/HomePage"
 import ProtectedRoute from "./ProtectedRoute"
-
+import { CarritoProvider } from "./context/CarritoContext"
 import { AuthProvider } from "./context/authContext"
 import { ObraProvider } from "./context/ObrasContext";
 import NavBar from "./components/NavBar"
@@ -20,6 +20,7 @@ function App ()
     <>
       <AuthProvider>
         <ObraProvider >
+          <CarritoProvider>
           <BrowserRouter>
           <NavBar/>
             <Routes>
@@ -38,6 +39,7 @@ function App ()
               </Route>
             </Routes>
           </BrowserRouter>
+          </CarritoProvider>
         </ObraProvider>
       </AuthProvider>
 

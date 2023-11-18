@@ -1,14 +1,32 @@
-// import Monalisa from '../images/la-monalisa.jpeg'
 import '../css/obrasPublic.css'
-import { useEffect } from 'react'
+import { ImPlus } from "react-icons/im";
+import { FaCartPlus } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+import { useEffect, useState } from 'react'
 import { useObras } from '../context/ObrasContext'
+import {useCarrito} from '../context/CarritoContext'
 
 const ObrasPublicPage = () => {
 
+  const {updateCarrito} = useCarrito()
   const {obras, getAllObras} = useObras();
+  const [isModalOpen, setModalOpen] = useState(null);
+  const [selectedObra, setSelectedObra] = useState(null);
 
+  const openModal = (obra) => {
+    setSelectedObra(obra);
+    setModalOpen(true);
+  };
 
-  // console.log(obras)
+  const closeModal = () => {
+    setSelectedObra(null);
+    setModalOpen(false);
+  };
+
+  const handleAddCarrito = (arte) => {
+    updateCarrito(arte);
+  }
+  
   useEffect(() => {
       getAllObras()
   },[])
@@ -17,8 +35,8 @@ const ObrasPublicPage = () => {
 
   return (
     <>
-<h1 className="titulo1">Obras</h1>
-<div className="flex flex-wrap mt-10">
+<h1 className="titulo1 mt-5">Obras</h1>
+<div className="flex flex-wrap mt-5">
   {obras.map((obra, index) => (
     <div key={obra.id || index} className="max-w-sm mx-auto mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style={{ width: '300px', height: '400px' }}>
       <div>
@@ -34,23 +52,63 @@ const ObrasPublicPage = () => {
           </p>
         </div>
         <div className="flex justify-center space-x-4">
-          <div className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          <button onClick={() => handleAddCarrito(obra)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Add to Cart
-            <svg  className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </div>
-          <div className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800">
+            <FaCartPlus className='ml-2'/>
+          </button>
+          <button onClick={() => openModal(obra)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800">
             More Info
-            <svg  className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-          </div>
+            <ImPlus className='ml-2'/>
+          </button>
         </div>
       </div>
     </div>
   ))}
 </div>
+
+
+{isModalOpen && selectedObra && (
+  <div className="modal-overlay fixed top-0 left-0 w-full h-full flex items-center justify-center">
+    <div className="modal-container dark:bg-gray-800 overflow-hidden">
+      <div className="modal-content flex flex-col lg:flex-row">
+        <div className="modal-image lg:w-2/3">
+          <img
+            className="object-cover w-full h-full rounded-t-lg"
+            src={`http://localhost:5000/${selectedObra.Urlimagen}`}
+            alt={`Imagen de ${selectedObra.nombre}`}
+          />
+        </div>
+        <div className="modal-info p-4 lg:w-1/3">
+          <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {selectedObra.nombre}
+          </h5>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            {selectedObra.descripcion}
+          </p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Precio: {selectedObra.precio}
+          </p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Vendedor: {selectedObra.user.username}
+          </p>
+          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            Correo del vendedor: {selectedObra.user.email}
+          </p>
+          <button
+            onClick={() => closeModal()}
+            type="button"
+            className="inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
+            Cerrar            
+            <IoClose className='ml-2'/>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
+
 
 
     </>
