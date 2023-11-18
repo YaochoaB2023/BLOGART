@@ -8,7 +8,7 @@ import {useCarrito} from '../context/CarritoContext'
 
 const ObrasPublicPage = () => {
 
-  const {updateCarrito} = useCarrito()
+  const {agregarCarrito} = useCarrito()
   const {obras, getAllObras} = useObras();
   const [isModalOpen, setModalOpen] = useState(null);
   const [selectedObra, setSelectedObra] = useState(null);
@@ -23,8 +23,8 @@ const ObrasPublicPage = () => {
     setModalOpen(false);
   };
 
-  const handleAddCarrito = (arte) => {
-    updateCarrito(arte);
+  const handleAddCarrito = (obra) => {
+    agregarCarrito(obra);
   }
   
   useEffect(() => {

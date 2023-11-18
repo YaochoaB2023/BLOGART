@@ -18,30 +18,32 @@ export function CarritoProvider({ children }){
     const [precioTotal, setPrecioTotal] = useState(0);
     const [isActualizarCarrito, setIsActualizarCarrito] = useState(false)
 
-      
-        const arteDate = async () => {
-            try {
-                const res = await getCarritoArteRequest();
-                if(Array.isArray(res.data.arteCarrito)){
-                    setCarrito(res.data.arteCarrito);
-                    console.log(res)
-                }else{
-                    console.log('arteCarrito no es un array valido en la respuesta:', res.data)
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        
 
-      useEffect(() => {
-        const carritoFiltrado = carrito.filter((carritos)=> carritos.Cantidad > 0);
+    //   useEffect(() => {
+    //     const arteDate = async () => {
+    //         try {
+    //             const res = await getCarritoArteRequest();
+    //             if(Array.isArray(res.data.arteCarrito)){
+    //                 setCarrito(res.data.arteCarrito);
+    //                 console.log(res)
+    //             }else{
+    //                 console.log('arteCarrito no es un array valido en la respuesta:', res.data)
+    //             }
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
+    //     arteDate();
+    //   }, [])
 
-        if(carritoFiltrado.length !== carrito.length){
-            setCarrito(carritoFiltrado);
-            calcularPrecioTotal(carritoFiltrado)
-        }
-      },[carrito]);
+    //   useEffect(() => {
+    //     const carritoFiltrado = carrito.filter((carritos)=> carritos.Cantidad > 0);
+
+    //     if(carritoFiltrado.length !== carrito.length){
+    //         setCarrito(carritoFiltrado);
+    //         calcularPrecioTotal(carritoFiltrado)
+    //     }
+    //   },[carrito]);
 
       const agregarCarrito = async(carritos) => {
         try {
@@ -58,7 +60,7 @@ export function CarritoProvider({ children }){
             }
         } catch (error) {
             console.log(error)
-            showToast("Error de Agregar","Hubo un error al agregar","error");
+            
         }
       }
 
@@ -104,7 +106,6 @@ export function CarritoProvider({ children }){
     return(
         <CarritoContext.Provider value={{
             carrito,
-            arteDate,
             precioTotal,
             updateCarrito,
             agregarCarrito

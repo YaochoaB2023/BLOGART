@@ -71,10 +71,10 @@ export const createCarritoArte = async (req, res) => {
 };
 
 export const putArte = async(req, res) => {
-    const { arteId } = req.params;
+    const { obraId } = req.params;
     const { query } = req.query;
 
-    const arteEncontrada = await Carrito.findById(arteId);
+    const arteEncontrada = await Carrito.findById(obraId);
 
     if(!query){
         res.status(404).json({message:'Desbes enviar una query'});
@@ -84,7 +84,7 @@ export const putArte = async(req, res) => {
         arteEncontrada.cantidad += incremento;
 
         if(arteEncontrada.cantidad <= 0) {
-            await Carrito.findByIdAndRemove(arteId);
+            await Carrito.findByIdAndRemove(obraId);
             res.json({message: `El arte ${arteEncontrada.nombre} fue eliminada del carrito`})
         }else{
             await arteEncontrada.save();
