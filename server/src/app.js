@@ -26,7 +26,7 @@ app.use('/uploads', express.static(uploadsPath));
 
 app.use( "/api", authRoutes )
 app.use( "/api", taskRoutes )
-app.use("api", carrito)
+app.use("/api", carrito)
 
 
 export default app
