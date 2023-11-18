@@ -59,7 +59,7 @@ const ObraFormPage = () => {
 
             <div className='FormularioObras'>
                   <div className=''>
-                      <p className="title1">Registro de Obra </p>
+                      <p className="titulo1 mt-5">Registro de Obra </p>
                       <div className='card2 flex'>
                           <form onSubmit={handleSubmit(onSubmited)} encType="multipart/form-data" className="form3">
                               <div className='flex flex-col'>
