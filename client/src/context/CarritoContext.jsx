@@ -19,31 +19,31 @@ export function CarritoProvider({ children }){
     const [isActualizarCarrito, setIsActualizarCarrito] = useState(false)
 
 
-    //   useEffect(() => {
-    //     const arteDate = async () => {
-    //         try {
-    //             const res = await getCarritoArteRequest();
-    //             if(Array.isArray(res.data.arteCarrito)){
-    //                 setCarrito(res.data.arteCarrito);
-    //                 console.log(res)
-    //             }else{
-    //                 console.log('arteCarrito no es un array valido en la respuesta:', res.data)
-    //             }
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     arteDate();
-    //   }, [])
+      useEffect(() => {
+        const arteDate = async () => {
+            try {
+                const res = await getCarritoArteRequest();
+                if(Array.isArray(res.data.arteCarrito)){
+                    setCarrito(res.data.arteCarrito);
+                    console.log(res)
+                }else{
+                    console.log('arteCarrito no es un array valido en la respuesta:', res.data)
+                }
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        arteDate();
+      }, [])
 
-    //   useEffect(() => {
-    //     const carritoFiltrado = carrito.filter((carritos)=> carritos.Cantidad > 0);
+      useEffect(() => {
+        const carritoFiltrado = carrito.filter((carritos)=> carritos.Cantidad > 0);
 
-    //     if(carritoFiltrado.length !== carrito.length){
-    //         setCarrito(carritoFiltrado);
-    //         calcularPrecioTotal(carritoFiltrado)
-    //     }
-    //   },[carrito]);
+        if(carritoFiltrado.length !== carrito.length){
+            setCarrito(carritoFiltrado);
+            calcularPrecioTotal(carritoFiltrado)
+        }
+      },[carrito]);
 
       const agregarCarrito = async(carritos) => {
         try {

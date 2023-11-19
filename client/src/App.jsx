@@ -6,12 +6,13 @@ import ObrasPublicPage from "./pages/ObrasPublicPage"
 import ObrasFormPage from "./pages/ObrasFormPage"
 import ProfilePage from "./pages/ProfilePage"
 import HomePage from "./pages/HomePage"
+import Carrito from "./pages/CarritoPage.jsx"
 import ProtectedRoute from "./ProtectedRoute"
 import { CarritoProvider } from "./context/CarritoContext"
 import { AuthProvider } from "./context/authContext"
 import { ObraProvider } from "./context/ObrasContext";
 import NavBar from "./components/NavBar"
-import Footer from "./components/Footer"
+import Footer from "./components/Footer.jsx"
 import ContactPage from "./pages/ContactPage"
 import LogoutPage from "./pages/logoutPage"
 
@@ -37,6 +38,7 @@ function App ()
                 <Route path="/add-obra" element={ <ObrasFormPage /> } />
                 <Route path="/obras/:id" element={ <ObrasFormPage /> } />
                 <Route path="/profile" element={ <ProfilePage /> } />
+                <Route path="/carrito" element={<Carrito/>}/>
               </Route>
             </Routes>
             <Footer/>
