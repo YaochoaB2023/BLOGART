@@ -11,6 +11,7 @@ import { CarritoProvider } from "./context/CarritoContext"
 import { AuthProvider } from "./context/authContext"
 import { ObraProvider } from "./context/ObrasContext";
 import NavBar from "./components/NavBar"
+import Footer from "./components/Footer"
 import ContactPage from "./pages/ContactPage"
 import LogoutPage from "./pages/logoutPage"
 
@@ -38,6 +39,7 @@ function App ()
                 <Route path="/profile" element={ <ProfilePage /> } />
               </Route>
             </Routes>
+            <Footer/>
           </BrowserRouter>
           </CarritoProvider>
         </ObraProvider>
