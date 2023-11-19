@@ -88,7 +88,7 @@ const ObrasPage = () => {
         {obras.map((obra, index) => (
           <div
             key={obra.id || index}
-            className="max-w-sm mx-auto mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            className="max-w-sm mx-auto mb-4 rounded-lg shadow bg-gray-300 p-1"
             style={{ width: "300px", height: "400px" }}
           >
             <div>
@@ -103,10 +103,10 @@ const ObrasPage = () => {
               style={{ height: "55%" }}
             >
               <div>
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
                   {obra.nombre}
                 </h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-3 font-normal text-gray-700 ">
                   {obra.descripcion}
                 </p>
               </div>

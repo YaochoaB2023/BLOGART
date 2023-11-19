@@ -26,7 +26,7 @@ function RegisterPage ()
     return (
     <>
     <div className="tamaño min-h-screen flex box-border justify-center items-center">
-        <div className="bg-[#6b6967] rounded-2xl flex max-w-3xl p-5 items-center">
+        <div className="bg-gray-300 rounded-2xl flex max-w-3xl p-5 items-center">
             <div className="md:block hidden w-1/2 color3">
                 <img className="rounded-2xl max-h-[1600px]" src={paisaje}  alt="login form image"/>
             </div>

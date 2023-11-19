@@ -32,16 +32,16 @@ const ObrasPublicPage = () => {
 <h1 className="titulo1 mt-5">Obras</h1>
 <div className="flex flex-wrap mt-5">
   {obras.map((obra, index) => (
-    <div key={obra.id || index} className="max-w-sm mx-auto mb-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style={{ width: '300px', height: '400px' }}>
+    <div key={obra.id || index} className="max-w-sm mx-auto mb-4 rounded-lg shadow bg-gray-300 p-1" style={{ width: '300px', height: '400px' }}>
       <div>
         <img className="rounded-t-lg" src={`http://localhost:5000/${obra.Urlimagen}`} alt={`Imagen de ${obra.nombre}`}/>
       </div>
       <div className="p-5 flex flex-col justify-between" style={{ height: '55%' }}>
         <div>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
             {obra.nombre}
           </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-700">
             {obra.descripcion}
           </p>
         </div>
@@ -50,7 +50,7 @@ const ObrasPublicPage = () => {
             Add to Cart
             <FaCartPlus className='ml-2'/>
           </button>
-          <button onClick={() => openModal(obra)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800">
+          <button onClick={() => openModal(obra)} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-500 dark:hover:bg-teal-700 dark:focus:ring-teal-800">
             More Info
             <ImPlus className='ml-2'/>
           </button>
