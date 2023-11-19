@@ -63,7 +63,7 @@ const ObrasPublicPage = () => {
 
 {isModalOpen && selectedObra && (
   <div className="modal-overlay fixed top-0 left-0 w-full h-full flex items-center justify-center">
-    <div className="modal-container dark:bg-gray-800 overflow-hidden">
+    <div className="modal-container bg-gray-300 overflow-hidden p-2">
       <div className="modal-content flex flex-col lg:flex-row">
         <div className="modal-image lg:w-2/3">
           <img
@@ -73,19 +73,19 @@ const ObrasPublicPage = () => {
           />
         </div>
         <div className="modal-info p-4 lg:w-1/3">
-          <h5 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="text-3xl font-bold tracking-tight textblack">
             {selectedObra.nombre}
           </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-800 ">
             {selectedObra.descripcion}
           </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-800">
             Precio: {selectedObra.precio}
           </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-800">
             Vendedor: {selectedObra.user.username}
           </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-800">
             Correo del vendedor: {selectedObra.user.email}
           </p>
           <button
