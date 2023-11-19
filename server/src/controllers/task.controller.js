@@ -69,19 +69,33 @@ export const deleteTask = async ( req, res ) =>
 
 }
 
-export const updateTask = async ( req, res ) =>
-{
-
+export const updateTask = async (req, res) => {
     try {
-        const task = await Task.findByIdAndUpdate( req.params.id, req.body, {
-            new: true
-        } )
-        if ( !task ) return res.status( 404 ).json( { message: "Task not Found" } )
-        res.status( 201 ).json( task )
+      console.log('actualizando imagen ')  
+      const { nombre, descripcion, precio } = req.body;
+      const Urlimagen = req.file ? req.file.path : null;
+  
+      const updatedTask = await Task.findByIdAndUpdate(
+        req.params.id,
+        {
+          nombre,
+          descripcion,
+          precio,
+          Urlimagen // Actualiza la URL de la imagen si hay un nuevo archivo
+        },
+        { new: true }
+      );
+  
+      if (!updatedTask) {
+        return res.status(404).json({ message: "Task not Found" });
+      }
+  
+      res.status(201).json(updatedTask);
     } catch (error) {
-        console.error('error updating obra', error)
+      console.error("Error updating obra", error);
+      res
+        .status(500)
+        .json({ message: "Internal Server Error", error: error.message });
     }
-
-
-}
+  };
 

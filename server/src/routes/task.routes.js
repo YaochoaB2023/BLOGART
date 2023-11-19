@@ -11,7 +11,7 @@ router.get( "/userObras", requiredAuth, getTasks )
 router.get( '/allObras', getAllObras )
 router.get( "/task/:id", requiredAuth, getTask )
 router.post( "/createObra", requiredAuth, upload.single('file'), validateSchema(createTaskSchema) , createTask )
-router.put( "/updateObra/:id", requiredAuth, updateTask )
+router.put( "/updateObra/:id", requiredAuth, upload.single('file'), updateTask )
 router.delete( "/deleteObra/:id", requiredAuth, deleteTask )
 
 export default router
