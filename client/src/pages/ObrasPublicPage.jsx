@@ -86,7 +86,7 @@ const ObrasPublicPage = () => {
             {selectedObra.descripcion}
           </p>
           <p className="mb-3 font-normal text-gray-800">
-            Precio: {selectedObra.precio}
+            Precio: {selectedObra.precio.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
           </p>
           <p className="mb-3 font-normal text-gray-800">
             Vendedor: {selectedObra.user.username}

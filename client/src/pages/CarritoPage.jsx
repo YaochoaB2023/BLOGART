@@ -23,7 +23,7 @@ const Carrito = () => {
                                     <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                                         <div className="mt-5 sm:mt-0">
                                             <h2 className="text-2xl font-bold text-gray-900">{carritos.nombre}</h2>
-                                            <p className="mt-1 text-xs text-gray-700">$  {carritos.precio}</p>
+                                            <p className="mt-1 text-xs text-gray-700">$  {carritos.precio.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                                         </div>
                                         <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                                             <div className="flex items-center border-gray-100">
@@ -57,7 +57,7 @@ const Carrito = () => {
                             <div className="flex justify-between">
                             <p className="text-lg font-bold">Total</p>
                             <div className="">
-                                <p className="mb-1 text-lg font-bold">${precioTotal.toFixed(2)}</p>
+                                <p className="mb-1 text-lg font-bold">${precioTotal.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                                 <p className="text-sm text-gray-700">incluye IVA</p>
                             </div>
                             </div>
