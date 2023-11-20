@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import logo from '../assets/logoBlogArt.jpeg'
 import { BsCart4 } from "react-icons/bs";
 import '../css/navbar.css'
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../context/AuthContext";
 
 const NavBar = () => {
   const {isAuthenticathed, logOut} = useAuth();
@@ -85,7 +85,7 @@ const NavBar = () => {
         </>
       )}
 
-      <li><NavLink to='/cart' className={({isActive})=> isActive ? "border-b-2 border-blue-700 hover:border-b-2 hover:border-blue-700 transition duration-700 block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" : "" }><BsCart4 style={{height:"25px"}} /></NavLink></li>
+      <li><NavLink to='/carrito' className={({isActive})=> isActive ? "border-b-2 border-blue-700 hover:border-b-2 hover:border-blue-700 transition duration-700 block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" : "" }><BsCart4 style={{height:"25px"}} /></NavLink></li>
 
     </ul>
   </div>

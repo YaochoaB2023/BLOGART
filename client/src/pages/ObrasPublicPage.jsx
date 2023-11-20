@@ -8,7 +8,7 @@ import {useCarrito} from '../context/CarritoContext'
 
 const ObrasPublicPage = () => {
 
-  const {agregarCarrito} = useCarrito()
+  const {agregarAlCarrito} = useCarrito()
   const {obras, getAllObras} = useObras();
   const [isModalOpen, setModalOpen] = useState(null);
   const [selectedObra, setSelectedObra] = useState(null);
@@ -24,7 +24,7 @@ const ObrasPublicPage = () => {
   };
 
   const handleAddCarrito = (obra) => {
-    agregarCarrito(obra);
+    agregarAlCarrito(obra);
   }
   
   useEffect(() => {
@@ -35,7 +35,7 @@ const ObrasPublicPage = () => {
 
   return (
     <>
-<h1 className="titulo1 mt-5">Obras</h1>
+<h1 className="mb-10 text-center text-3xl font-bold mt-5">Obras</h1>
 <div className="flex flex-wrap mt-5">
   {obras.map((obra, index) => (
     <div key={obra.id || index} className="max-w-sm mx-auto mb-4 rounded-lg shadow bg-gray-300 p-1" style={{ width: '300px', height: '400px' }}>

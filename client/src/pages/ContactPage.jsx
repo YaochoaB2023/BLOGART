@@ -6,7 +6,7 @@ const ContactPage = () => {
     <>
     <div className="contactanos">
         <div>
-            <h1 className='titulo1 mt-5' >Contactanos</h1>
+        <h1 className="mb-10 text-center text-3xl font-bold mt-5">Contactanos</h1>
             <div className='flex'>
                 <img src={Mona} className='mona' />
                     <div className="card ">
