@@ -43,7 +43,7 @@ export function CarritoProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        const carritoFiltrado = carritoRef.current.filter((producto) => producto.Cantidad > 0);
+        const carritoFiltrado = carritoRef.current.filter((producto) => producto.cantidad > 0);
         setCarrito(carritoFiltrado);
         calcularPrecioTotal(carritoFiltrado);
     }, []);
@@ -99,7 +99,7 @@ export function CarritoProvider({ children }) {
 
     const calcularPrecioTotal = (productos) => {
         const total = productos.reduce((acc, producto) => {
-            return acc + producto.Precio * producto.Cantidad;
+            return acc + producto.precio * producto.cantidad;
         }, 0);
         setPrecioTotal(total);
     };
