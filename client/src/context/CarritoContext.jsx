@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import {
     getCarritoArteRequest,
     createCarritoArteRequest,
-    // putCarritoRequest,
+    deleteArteRequest
 } from '../api/carrito.js';
 
 // Importa las bibliotecas necesarias
@@ -65,6 +65,20 @@ export function CarritoProvider({ children }) {
             console.error('Error al agregar al carrito', error);
         }
     };
+
+    const deleteArteCarrito = async (arteId) => {
+        try {
+            const res = await deleteArteRequest(arteId);
+            console.log('obra eliminada del carrito', res)
+            // Actualizar el carrito local excluyendo la obra eliminada
+            setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
+
+            // Recalcular el precio total con el carrito actualizado
+            calcularPrecioTotal(carrito.filter((producto) => producto._id !== arteId));
+        } catch (error) {
+            console.error('Error al eliminar obra del carrito:', error);
+        }
+    }
     
 
     const calcularPrecioTotal = (productos) => {
@@ -78,8 +92,10 @@ export function CarritoProvider({ children }) {
         <CarritoContext.Provider
             value={{
                 carrito,
+                setCarrito,
                 precioTotal,
                 agregarAlCarrito,
+                deleteArteCarrito
             }}
         >
             {children}

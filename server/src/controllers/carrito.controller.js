@@ -4,18 +4,19 @@ import taskModel from '../models/task.model.js';
 export const getCarritoArte = async (req, res) => {
     try {
         const arteCarrito = await Carrito.find({
-            user:req.user.id
-        }).populate('user')
-    
-        if(arteCarrito){
-            res.json({arteCarrito})
-        }else{
-            res.json({message : "No hay productos en el carrito"})
+            user: req.user.id
+        }).populate('user').lean();
+
+        if (arteCarrito.length > 0) {
+            res.json({ arteCarrito });
+        } else {
+            res.json({ message: "No hay productos en el carrito" });
         }
     } catch (error) {
-        res.json(500).json("Error al encontrear el arte en el carrito")
+        res.status(500).json("Error al encontrar el arte en el carrito");
     }
 }
+
 
 export const createCarritoArte = async (req, res) => {
     const { nombre, Urlimagen, precio } = req.body;
@@ -27,18 +28,17 @@ export const createCarritoArte = async (req, res) => {
             return res.status(400).json({ message: "Este arte no se ha encontrado en la base de datos" });
         }
 
-        const elItemExiste = await Carrito.findOne({
+        const elItemExiste = await Carrito.findOneAndUpdate({
             nombre,
             Urlimagen,
             precio,
             cantidad: 1,
             user: req.user.id,
-        });
+        }, {
+            $inc: { cantidad: 1 },
+        }, { new: true });
 
         if (elItemExiste) {
-            elItemExiste.cantidad += 1;
-            await elItemExiste.save();
-
             estaEnLaArte.EnCarrito = true;
             await estaEnLaArte.save();
 
@@ -71,30 +71,29 @@ export const createCarritoArte = async (req, res) => {
 };
 
 
+
 export const deleteArte = async (req, res) => {
     try {
-        const {arteId} = req.params;
+        const { arteId } = req.params;
 
         const arteEnCarrito = await Carrito.findById(arteId);
 
-        const{nombre, Urlimagen, precio, _id} = await taskModel.findOne({
-            nombre: arteEnCarrito.nombre
-        });
+        if (!arteEnCarrito) {
+            return res.status(404).json({ message: "El arte no se encontró en el carrito" });
+        }
 
-        await Carrito.findByIdAndDelete(arteId)
+        await Carrito.findByIdAndDelete(arteId);
 
-        await taskModel.findByIdAndUpdate(
-            _id,
-            {EnCarrito: false, nombre, Urlimagen, precio},
-            {new: true}
-        )
-        .then((arte)=>{
-            res.json({message: `El arte ${arte.nombre} fue eliminada del carrito`})
-        })
+        await taskModel.findOneAndUpdate(
+            { nombre: arteEnCarrito.nombre },
+            { $set: { EnCarrito: false } },
+            { new: true }
+        );
+
+        res.json({ message: `El arte fue eliminado del carrito` });
     } catch (error) {
-        res.status(500).json("Error al eliminarlo del carrito ")
+        res.status(500).json("Error al eliminarlo del carrito");
     }
-
-
 }
+
 

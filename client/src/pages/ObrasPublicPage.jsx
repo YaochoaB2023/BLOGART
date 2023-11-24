@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 
 const ObrasPublicPage = () => {
 
-  const {agregarAlCarrito} = useCarrito()
+  const {agregarAlCarrito, setCarrito} = useCarrito()
   const {obras, getAllObras} = useObras();
   const [isModalOpen, setModalOpen] = useState(null);
   const [selectedObra, setSelectedObra] = useState(null);
@@ -27,8 +27,11 @@ const ObrasPublicPage = () => {
   };
 
   const handleAddCarrito = (obra) => {
+    // Actualizar el estado local antes de llamar a la función del contexto
+    setCarrito((prevCarrito) => [...prevCarrito, obra]);
+    // Llamar a la función del contexto
     agregarAlCarrito(obra);
-  }
+  };
   
   useEffect(() => {
       getAllObras()

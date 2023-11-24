@@ -2,8 +2,17 @@ import { useCarrito } from "../context/CarritoContext";
 import '../css/carrito.css';
 
 const Carrito = () => {
-    const { carrito, precioTotal } = useCarrito();
+    const { carrito, precioTotal, deleteArteCarrito } = useCarrito();
     console.log('carrito en pagina', carrito);
+
+    const handledeleteArte = async (arteId) => {
+        try {
+            await deleteArteCarrito(arteId)
+            console.log('arte eliminado del carrito')
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <div>
@@ -30,8 +39,10 @@ const Carrito = () => {
 
                                             </div>
                                             <div className="flex items-center space-x-4">
+                                                <p className="font-bold">Precio:</p>
                                                 <p className="text-sm">${carritos.precio.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                                                {/* boton de eliminar */}
+                                                <svg onClick={() => handledeleteArte(carritos._id)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                                 </svg>
                                             </div>
