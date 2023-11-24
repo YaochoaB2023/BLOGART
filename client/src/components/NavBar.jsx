@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom"
-import logo from '../assets/logoBlogArt.jpeg'
+import logo from '../assets/Blog-art__1_-removebg-preview.png'
+import logo2 from '../assets/logoBlogArt.jpeg'
 import { BsCart4 } from "react-icons/bs";
 import '../css/navbar.css'
 import { useAuth } from "../context/AuthContext";
@@ -22,14 +23,14 @@ const NavBar = () => {
       <nav className=" dark:bg-white shadow-md">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} className="w-12 h-12 rounded-full" alt="Flowbite Logo" />
+            <img src={logo} className="w-12 h-12 rounded" alt="Flowbite Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray-900">Blog Art</span>
           </a>
 
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom" >
               <span className="sr-only">Open user menu</span>
-              <img className="w-12 h-12 rounded-full" src={logo} alt="user photo" />
+              <img className="w-12 h-12 rounded-full" src={logo2} alt="user photo" />
             </button>
             <div className="z-50 hidden my-4 text-base list-none bg-gray-300 divide-y divide-gray-400 rounded-lg" id="user-dropdown">
               {isAuthenticathed && (
