@@ -1,9 +1,11 @@
-import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import {
     getCarritoArteRequest,
     createCarritoArteRequest,
-    putCarritoRequest,
+    // putCarritoRequest,
 } from '../api/carrito.js';
+
+// Importa las bibliotecas necesarias
 
 const CarritoContext = createContext();
 
@@ -19,16 +21,12 @@ export const useCarrito = () => {
 export function CarritoProvider({ children }) {
     const [carrito, setCarrito] = useState([]);
     const [precioTotal, setPrecioTotal] = useState(0);
-    const carritoRef = useRef(carrito);
-    console.log('set',precioTotal)
-
 
     useEffect(() => {
         const cargarCarrito = async () => {
             try {
                 const res = await getCarritoArteRequest();
                 if (Array.isArray(res.data.arteCarrito)) {
-                    carritoRef.current = res.data.arteCarrito;
                     setCarrito(res.data.arteCarrito);
                     console.log('Datos del carrito:', res.data.arteCarrito);
                 } else {
@@ -43,7 +41,7 @@ export function CarritoProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        const carritoFiltrado = carritoRef.current.filter((producto) => producto.cantidad > 0);
+        const carritoFiltrado = carrito.filter((producto) => producto.cantidad > 0);
         setCarrito(carritoFiltrado);
         calcularPrecioTotal(carritoFiltrado);
     }, []);
@@ -53,47 +51,10 @@ export function CarritoProvider({ children }) {
             const res = await createCarritoArteRequest(producto);
             console.log(res);
 
-            const nuevoCarrito = await obtenerYActualizarCarrito();
-            setCarrito(nuevoCarrito);
-            calcularPrecioTotal(nuevoCarrito);
+            setCarrito();
+            calcularPrecioTotal();
         } catch (error) {
             console.error('Error al agregar al carrito', error);
-        }
-    };
-
-    const actualizarCarrito = async (arteId, query) => {
-        if (carritoRef.current.some((producto) => producto._id === arteId)) {
-            try {
-                const body = { Cantidad: query === 'add' ? 1 : -1 };
-                const res = await putCarritoRequest(arteId, query, body);
-
-                if (res.data && res.data.msg === 'El producto fue actualizado') {
-                    console.log('Error al actualizar el carrito');
-                } else {
-                    const nuevoCarrito = await obtenerYActualizarCarrito();
-                    setCarrito(nuevoCarrito);
-                    calcularPrecioTotal(nuevoCarrito);
-                }
-            } catch (error) {
-                console.error('Error al actualizar el carrito', error);
-            }
-        }
-    };
-
-    const obtenerYActualizarCarrito = async () => {
-        try {
-            const res = await getCarritoArteRequest();
-            if (Array.isArray(res.data.arteCarrito)) {
-                carritoRef.current = res.data.arteCarrito;
-                console.log('Datos del carrito:', res.data.arteCarrito);
-                return res.data.arteCarrito;
-            } else {
-                console.log('arteCarrito no es un array válido en la respuesta:', res.data);
-                return [];
-            }
-        } catch (error) {
-            console.log('Error al obtener datos del carrito:', error);
-            return [];
         }
     };
 
@@ -110,7 +71,6 @@ export function CarritoProvider({ children }) {
                 carrito,
                 precioTotal,
                 agregarAlCarrito,
-                actualizarCarrito,
             }}
         >
             {children}

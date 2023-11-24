@@ -7,7 +7,7 @@ const Carrito = () => {
 
     return (
         <div>
-            {carrito.length === 0 ? (    
+            {carrito.length <= 0 ? (    
             
                 <h1 className="mb-10 mt-10 text-center text-2xl font-bold">Carrito Vacio</h1>
 

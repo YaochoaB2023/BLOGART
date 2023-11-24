@@ -70,38 +70,6 @@ export const createCarritoArte = async (req, res) => {
     }
 };
 
-export const putArte = async(req, res) => {
-    const { obraId } = req.params;
-    const { query } = req.query;
-
-    const arteEncontrada = await Carrito.findById(obraId);
-
-    if(!query){
-        res.status(404).json({message:'Desbes enviar una query'});
-    }else if (arteEncontrada && (query === "add" || query === "del")) {
-        const incremento = query === "add" ? 1 : -1;
-
-        arteEncontrada.cantidad += incremento;
-
-        if(arteEncontrada.cantidad <= 0) {
-            await Carrito.findByIdAndRemove(obraId);
-            res.json({message: `El arte ${arteEncontrada.nombre} fue eliminada del carrito`})
-        }else{
-            await arteEncontrada.save();
-
-            const arteEnDB = await Carrito.findOne({nombre: arteEncontrada.nombre})
-            const precioArte = arteEnDB.precio;
-
-            const arteTotal = arteEncontrada.cantidad * precioArte;
-
-            res.json({message: `El arte ${arteEncontrada.nombre} fue actualizada`,
-                      arte: arteEncontrada,
-                      arteTotal: arteTotal});
-        }
-    }else{
-        res.status(400).json({message: 'Ocurrio un error'})
-    }
-};
 
 export const deleteArte = async (req, res) => {
     try {

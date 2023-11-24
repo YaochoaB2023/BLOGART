@@ -1,6 +1,6 @@
 import '../css/registerpage.css'
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../context/authContext';
+import { useAuth } from '../context/AuthContext';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import paisaje from '../images/paisaje.jpg'
@@ -31,21 +31,21 @@ function RegisterPage ()
                 <img className="rounded-2xl max-h-[1600px]" src={paisaje}  alt="login form image"/>
             </div>
             <div className="md:w-1/2 px-8">
-                <h2 className="font-bold text-3xl text-[#002D74]">Register</h2>
-                <p className="text-sm mt-4 text-[#002D74]">If you are not a member, easily log in now.</p>
+                <h2 className="font-bold text-3xl text-[#002D74]">Registro</h2>
+                <p className="text-sm mt-4 text-[#002D74]">Si no es miembro, conéctese fácilmente ahora.</p>
 
                 <form onSubmit={onSubmited} className="flex flex-col gap-4">
                     
-                    <input { ...register( 'email', { required: true } ) } className="email text-black bg-gray-100 p-2 mt-8 rounded-xl border" type="email" name="email" placeholder="Email"/>
+                    <input { ...register( 'email', { required: true } ) } className="email text-black bg-gray-100 p-2 mt-8 rounded-xl border" type="email" name="email" placeholder="orreo"/>
                     {
                       errors.email && <p className='text-red-500'>Email is Required</p>
                     }
-                    <input { ...register( 'username', { required: true } ) } className="email text-black bg-gray-100 p-2 rounded-xl border" type="username" name="username" placeholder="Username"/>
+                    <input { ...register( 'username', { required: true } ) } className="email text-black bg-gray-100 p-2 rounded-xl border" type="username" name="username" placeholder="Nombre de Usuario"/>
                     {
                         errors.username && <p className='text-red-500'>UserName is required</p>
                     }
                     <div className="relative">
-                    <input { ...register( 'password', { required: true } ) } className="bg-gray-100 p-2 rounded-xl border w-full text-black placeholder-gray-500" type="password" name="password" id="password" placeholder="Password"/>
+                    <input { ...register( 'password', { required: true } ) } className="bg-gray-100 p-2 rounded-xl border w-full text-black placeholder-gray-500" type="password" name="password" id="password" placeholder="Contraseña"/>
                     {
                       errors.password && <p className='text-red-500'>Password is Required</p>
                     }
@@ -70,7 +70,7 @@ function RegisterPage ()
                             </path>
                         </svg>
                     </div>
-                    <button className="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Register</button>
+                    <button className="bg-[#002D74] text-white py-2 rounded-xl hover:scale-105 duration-300 hover:bg-[#206ab1] font-medium" type="submit">Registrar</button>
                     {
                       RegisterErrors.map( ( error, i ) => (
                         <div className='bg-red-500 text-white p-2 my-2 mb-5' key={ i }>
@@ -80,8 +80,8 @@ function RegisterPage ()
                     }
                 </form>
                 <div className="mt-10 text-sm flex justify-between items-center container-mr">
-                    <p className="mr-3 md:mr-0 ">If you have an account..</p>
-                    <a href="/Login" className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Login</a>
+                    <p className="mr-3 md:mr-0 ">Si ya tienes una cuenta..</p>
+                    <a href="/Login" className="hover:border register text-white bg-[#002D74] hover:border-gray-400 rounded-xl py-2 px-5 hover:scale-110 hover:bg-[#002c7424] font-semibold duration-300">Inicia Sesion</a>
                 </div>
             </div>
         </div>
