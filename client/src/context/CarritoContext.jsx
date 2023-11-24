@@ -27,7 +27,9 @@ export function CarritoProvider({ children }) {
             try {
                 const res = await getCarritoArteRequest();
                 if (Array.isArray(res.data.arteCarrito)) {
-                    setCarrito(res.data.arteCarrito);
+                    const carritoFiltrado = res.data.arteCarrito.filter((producto) => producto.cantidad > 0);
+                    setCarrito(carritoFiltrado);
+                    calcularPrecioTotal(carritoFiltrado);
                     console.log('Datos del carrito:', res.data.arteCarrito);
                 } else {
                     console.log('arteCarrito no es un array válido en la respuesta:', res.data);
@@ -36,31 +38,38 @@ export function CarritoProvider({ children }) {
                 console.log('Error al obtener datos del carrito:', error);
             }
         };
-
+    
         cargarCarrito();
     }, []);
+    
 
     useEffect(() => {
-        const carritoFiltrado = carrito.filter((producto) => producto.cantidad > 0);
-        setCarrito(carritoFiltrado);
-        calcularPrecioTotal(carritoFiltrado);
+        setCarrito((prevCarrito) => {
+            const nuevoCarrito = prevCarrito.filter((producto) => producto.cantidad > 0);
+            calcularPrecioTotal(nuevoCarrito);
+            return nuevoCarrito;
+        });
     }, []);
 
     const agregarAlCarrito = async (producto) => {
         try {
             const res = await createCarritoArteRequest(producto);
             console.log(res);
-
-            setCarrito();
-            calcularPrecioTotal();
+    
+            // Actualizar el carrito con la respuesta del servidor
+            setCarrito((prevCarrito) => [...prevCarrito, res.data]);
+    
+            // Calcular el precio total con el carrito actualizado
+            calcularPrecioTotal([...carrito, res.data]);
         } catch (error) {
             console.error('Error al agregar al carrito', error);
         }
     };
+    
 
     const calcularPrecioTotal = (productos) => {
-        const total = productos.reduce((acc, producto) => {
-            return acc + producto.precio * producto.cantidad;
+        const total = productos.reduce((i, producto) => {
+            return i + producto.precio * producto.cantidad;
         }, 0);
         setPrecioTotal(total);
     };
