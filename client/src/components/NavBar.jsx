@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
 
 const NavBar = () => {
-  const { isAuthenticathed, logOut, user, signin } = useAuth();
+  const { isAuthenticathed, logOut, user, getProfileUser } = useAuth();
   // console.log('isAuthenticated:', isAuthenticathed);
 
   const handleLogOut = async () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-      signin();
+    getProfileUser();
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const NavBar = () => {
               {isAuthenticathed && (
                 <>
                   <div className="px-4 py-3">
-                    <span className="block text-sm text-gray-900 ">{user.username}</span>
+                    <span className="block text-sm text-gray-900 font-semibold">{user.username}</span>
                     <span className="block text-sm  text-gray-500 truncate ">{user.email}</span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">

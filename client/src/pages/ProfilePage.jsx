@@ -1,12 +1,13 @@
+import { FaUserEdit } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
-import { useAuth } from "../context/AuthContext"
 
 const ProfilePage = () => {
 
-    const { user, signin } = useAuth();
+    const { user, getProfileUser } = useAuth();
 
     useEffect(() => {
-        signin();
+      getProfileUser();
     }, []);
 
   return (
@@ -40,15 +41,14 @@ const ProfilePage = () => {
             <div>10k</div>
         </li>
         <li className="flex flex-col items-center justify-around">
-            <svg className="w-4 fill-current text-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path
-                    d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z" />
-            </svg>
+            <div className="icon text-blue-900">
+                <FaUserEdit />  
+            </div>
             <div>15</div>
         </li>
     </ul>
     <div className="p-4 border-t mx-8 mt-2">
-        <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Follow</button>
+        <button className="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Editar Info</button>
     </div>
 </div>
     </div>

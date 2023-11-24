@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
-import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest } from "../api/auth";
+import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest, getProfileRequest } from "../api/auth";
 import Cookies from 'js-cookie'
 
 export const AuthContext = createContext()
@@ -59,6 +59,15 @@ export const AuthProvider = ( { children } ) =>
 
         }
     }
+
+    const getProfileUser = async () => {
+        try {
+            const res = await getProfileRequest();
+            console.log('Perfil del usuario:', res.data);
+        } catch (error) {
+            console.error('Error al obtener el perfil del usuario:', error);
+        }
+    };
 
     const logOut = async () => {
         try {
@@ -128,6 +137,7 @@ export const AuthProvider = ( { children } ) =>
             isAuthenticathed,
             errors,
             loading,
+            getProfileUser
             
         } }>
             { children }
