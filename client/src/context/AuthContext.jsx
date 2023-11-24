@@ -25,7 +25,6 @@ export const AuthProvider = ( { children } ) =>
     const [ loading, setLoading ] = useState( true )
 
 
-
     const signup = async ( user ) =>
     {
         try

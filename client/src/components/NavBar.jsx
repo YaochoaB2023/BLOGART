@@ -4,9 +4,10 @@ import logo2 from '../assets/logoBlogArt.jpeg'
 import { BsCart4 } from "react-icons/bs";
 import '../css/navbar.css'
 import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
 
 const NavBar = () => {
-  const { isAuthenticathed, logOut } = useAuth();
+  const { isAuthenticathed, logOut, user, signin } = useAuth();
   // console.log('isAuthenticated:', isAuthenticathed);
 
   const handleLogOut = async () => {
@@ -17,6 +18,10 @@ const NavBar = () => {
       console.error("error during logout", error)
     }
   }
+
+  useEffect(() => {
+      signin();
+  }, []);
 
   return (
     <>
@@ -36,8 +41,8 @@ const NavBar = () => {
               {isAuthenticathed && (
                 <>
                   <div className="px-4 py-3">
-                    <span className="block text-sm text-gray-900 ">Bonnie Green</span>
-                    <span className="block text-sm  text-gray-500 truncate ">name@flowbite.com</span>
+                    <span className="block text-sm text-gray-900 ">{user.username}</span>
+                    <span className="block text-sm  text-gray-500 truncate ">{user.email}</span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
                     <li>
