@@ -1,5 +1,18 @@
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const ContactPage = () => {
+
+    const form = useRef();
+
+    const sendEmail = (event) => {
+        event.preventDefault();
+    
+        emailjs.sendForm('service_e6eetny', 'template_3g3tlpz', event.target, '7vT6E2K7VQYKM9rNN')
+            .then(response => console.log('Correo electrónico enviado:', response))
+            .catch(error => console.error('Error de correo electrónico:', error));
+    }
+
   return (
     <>
         <h1 className="text-center text-3xl font-bold mt-5">Contactanos</h1>
@@ -18,15 +31,15 @@ const ContactPage = () => {
                         </p>
                     </div>
 
-                    <form>
+                    <form ref={form} onSubmit={sendEmail}>
 
                         <input
                                 className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
-                                type="text" placeholder="Nombre" name="name"/>
+                                type="text" placeholder="Nombre" name="user_name"/>
 
                         <input
                                 className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
-                                type="email" placeholder="Email" name="email"/>
+                                type="email" placeholder="Email" name="user_email"/>
 
                         <textarea
                                 className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-gray-100 bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
