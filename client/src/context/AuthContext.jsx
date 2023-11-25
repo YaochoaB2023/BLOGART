@@ -2,6 +2,10 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest } from "../api/auth";
 import Cookies from 'js-cookie'
+import { Toaster,  toast } from 'sonner';
+import { PiSignIn } from "react-icons/pi";
+import { CiLogout } from "react-icons/ci";
+
 
 export const AuthContext = createContext()
 
@@ -17,12 +21,27 @@ export const useAuth = () =>
 }
 
 // eslint-disable-next-line react/prop-types
-export const AuthProvider = ( { children } ) =>
-{
+export const AuthProvider = ( { children } ) => {
     const [ user, setUser ] = useState( null )
     const [ isAuthenticathed, setIsAuthenticathed ] = useState( false )
     const [ errors, setErrors ] = useState( [] )
     const [ loading, setLoading ] = useState( true )
+
+    const showIniciar = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <PiSignIn style={{ fontSize: "15px"}}/>
+        });
+      };
+
+      const showLogout = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <CiLogout style={{ fontSize: "15px"}}/>
+        });
+      };
 
 
     const signup = async ( user ) =>
@@ -33,6 +52,7 @@ export const AuthProvider = ( { children } ) =>
             console.log( res )
             setIsAuthenticathed( true )
             setUser( res.data )
+            showIniciar("Te has resgistrado", "", "");
         } catch ( error )
         {
             setErrors( error.response.data )
@@ -48,6 +68,7 @@ export const AuthProvider = ( { children } ) =>
             console.log( res.data )
             setIsAuthenticathed( true )
             setUser( res.data )
+            showIniciar("Has iniciado seccion", "", "success");
         } catch ( error )
         {
             console.log( error )
@@ -65,6 +86,7 @@ export const AuthProvider = ( { children } ) =>
             await logoutRequest();
             setIsAuthenticathed(false);
             setUser(null);
+            showLogout("Has cerrado seccion","", "success");
         } catch (error) {
             console.error("error durin logout", error)
         }
@@ -130,6 +152,7 @@ export const AuthProvider = ( { children } ) =>
             loading,
             
         } }>
+            <Toaster position="top-right" reverseOrder={false} />
             { children }
         </AuthContext.Provider>
     )
