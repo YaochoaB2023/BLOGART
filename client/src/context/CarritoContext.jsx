@@ -84,7 +84,7 @@ export function CarritoProvider({ children }) {
             setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
 
             // Recalcular el precio total con el carrito actualizado
-        calcularPrecioTotal((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
+        calcularPrecioTotal( carrito.filter((producto) => producto._id !== arteId));
         } catch (error) {
             console.error('Error al eliminar obra del carrito:', error);
         }
