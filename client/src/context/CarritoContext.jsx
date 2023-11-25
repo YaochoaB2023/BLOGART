@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext.jsx';
 import {
     getCarritoArteRequest,
     createCarritoArteRequest,
@@ -21,15 +22,24 @@ export const useCarrito = () => {
 export function CarritoProvider({ children }) {
     const [carrito, setCarrito] = useState([]);
     const [precioTotal, setPrecioTotal] = useState(0);
+    const { user } = useAuth();
+
+
+
 
     useEffect(() => {
         const cargarCarrito = async () => {
             try {
                 const res = await getCarritoArteRequest();
+    
                 if (Array.isArray(res.data.arteCarrito)) {
-                    const carritoFiltrado = res.data.arteCarrito.filter((producto) => producto.cantidad > 0);
+                    const carritoFiltrado = res.data.arteCarrito.filter(
+                        (producto) => producto.cantidad > 0 
+                    );
+    
                     setCarrito(carritoFiltrado);
                     calcularPrecioTotal(carritoFiltrado);
+                    console.log('usuario', user);
                     console.log('Datos del carrito:', res.data.arteCarrito);
                 } else {
                     console.log('arteCarrito no es un array válido en la respuesta:', res.data);
@@ -40,7 +50,7 @@ export function CarritoProvider({ children }) {
         };
     
         cargarCarrito();
-    }, []);
+    }, [user]);
     
 
     useEffect(() => {
@@ -60,7 +70,7 @@ export function CarritoProvider({ children }) {
             setCarrito((prevCarrito) => [...prevCarrito, res.data]);
     
             // Calcular el precio total con el carrito actualizado
-            calcularPrecioTotal([...carrito, res.data]);
+            calcularPrecioTotal((prevCarrito) => [...prevCarrito, res.data]);
         } catch (error) {
             console.error('Error al agregar al carrito', error);
         }
@@ -74,7 +84,7 @@ export function CarritoProvider({ children }) {
             setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
 
             // Recalcular el precio total con el carrito actualizado
-            calcularPrecioTotal(carrito.filter((producto) => producto._id !== arteId));
+        calcularPrecioTotal((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
         } catch (error) {
             console.error('Error al eliminar obra del carrito:', error);
         }

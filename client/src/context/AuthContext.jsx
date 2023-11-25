@@ -63,6 +63,7 @@ export const AuthProvider = ( { children } ) =>
     const getProfileUser = async () => {
         try {
             const res = await getProfileRequest();
+            setUser(res.data);
             console.log('Perfil del usuario:', res.data);
         } catch (error) {
             console.error('Error al obtener el perfil del usuario:', error);

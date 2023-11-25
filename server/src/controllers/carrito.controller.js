@@ -33,7 +33,7 @@ export const createCarritoArte = async (req, res) => {
             Urlimagen,
             precio,
             cantidad: 1,
-            user: req.user.id,
+            user: req.user.id
         }, {
             $inc: { cantidad: 1 },
         }, { new: true });
