@@ -83,7 +83,7 @@ const ObrasPage = () => {
 
   return (
     <>
-    <h1 className="mb-10 text-center text-3xl font-bold mt-5">Mis Obras</h1>
+    <h1 className="mb-10 text-center text-3xl font-bold mt-24">Mis Obras</h1>
       <div className="flex flex-wrap mt-10">
         {obras.map((obra, index) => (
           <div

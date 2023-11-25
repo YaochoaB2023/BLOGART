@@ -37,7 +37,7 @@ const ContactPage = () => {
 
     return (
         <>
-            <h1 className="text-center text-3xl font-bold mt-5">Contactanos</h1>
+            <h1 className="text-center text-3xl font-bold mt-24">Contactanos</h1>
             <div className="min-h-screen bg-white py-6 flex flex-col justify-center sm:py-12">
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                     <div

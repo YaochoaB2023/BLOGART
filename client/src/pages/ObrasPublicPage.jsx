@@ -50,7 +50,7 @@ const ObrasPublicPage = () => {
 
   return (
     <>
-<h1 className="mb-10 text-center text-3xl font-bold mt-5">Obras</h1>
+<h1 className="mb-10 text-center text-3xl font-bold mt-24">Obras</h1>
 {!isAuthenticathed && mostrarParrafo && (
   <> 
     <p className='text-center font-bold text-red-500'>Para Agregar Obras a tu Carrito De Compras Por Favor Inicia Sesion o Registrate si aun no tienes una cuenta</p>
