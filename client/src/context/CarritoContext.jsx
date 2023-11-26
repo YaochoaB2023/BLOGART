@@ -1,15 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from './AuthContext.jsx';
-import {
-    getCarritoArteRequest,
-    createCarritoArteRequest,
-    deleteArteRequest
-} from '../api/carrito.js';
+import {getCarritoArteRequest, createCarritoArteRequest, deleteArteRequest} from '../api/carrito.js';
+import { Toaster,  toast } from 'sonner';
+import {BsCart4} from 'react-icons/bs';
+import { AiFillDelete } from "react-icons/ai";
 
-// Importa las bibliotecas necesarias
 
 const CarritoContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCarrito = () => {
     const context = useContext(CarritoContext);
     if (!context) {
@@ -19,13 +18,37 @@ export const useCarrito = () => {
 };
 
 // eslint-disable-next-line react/prop-types
-export function CarritoProvider({ children }) {
+export function CarritoProvider({ children })  {
     const [carrito, setCarrito] = useState([]);
     const [precioTotal, setPrecioTotal] = useState(0);
     const { user } = useAuth();
 
 
 
+
+    // eslint-disable-next-line no-unused-vars
+    const showToast = (title, description) => {
+        toast.success(description, {
+          title: title,
+          description: description
+        });
+      };
+
+      const showCarrito = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <BsCart4 style={{fontSize: "15px"}}/>
+        });
+      };
+
+      const showEliminar = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <AiFillDelete style={{ fontSize: "15px"}}/>
+        });
+      };
 
     useEffect(() => {
         const cargarCarrito = async () => {
@@ -65,12 +88,9 @@ export function CarritoProvider({ children }) {
         try {
             const res = await createCarritoArteRequest(producto);
             console.log(res);
-    
-            // Actualizar el carrito con la respuesta del servidor
             setCarrito((prevCarrito) => [...prevCarrito, res.data]);
-    
-            // Calcular el precio total con el carrito actualizado
-            calcularPrecioTotal((prevCarrito) => [...prevCarrito, res.data]);
+            calcularPrecioTotal([...carrito, res.data]);
+            showCarrito("Agregado al carrito","","");
         } catch (error) {
             console.error('Error al agregar al carrito', error);
         }
@@ -80,11 +100,9 @@ export function CarritoProvider({ children }) {
         try {
             const res = await deleteArteRequest(arteId);
             console.log('obra eliminada del carrito', res)
-            // Actualizar el carrito local excluyendo la obra eliminada
             setCarrito((prevCarrito) => prevCarrito.filter((producto) => producto._id !== arteId));
-
-            // Recalcular el precio total con el carrito actualizado
-        calcularPrecioTotal( carrito.filter((producto) => producto._id !== arteId));
+            calcularPrecioTotal(carrito.filter((producto) => producto._id !== arteId));
+            showEliminar("Eliminado del carrito", "", "")
         } catch (error) {
             console.error('Error al eliminar obra del carrito:', error);
         }
@@ -108,6 +126,7 @@ export function CarritoProvider({ children }) {
                 deleteArteCarrito
             }}
         >
+            <Toaster position="top-right" reverseOrder={false} />
             {children}
         </CarritoContext.Provider>
     );
