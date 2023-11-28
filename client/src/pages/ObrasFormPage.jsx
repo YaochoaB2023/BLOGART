@@ -32,31 +32,30 @@ const ObraFormPage = () => {
                   <div className=''>
                   <h1 className="mb-10 text-center text-3xl font-bold mt-5">Subir Obra</h1>
                       <div className='card2 flex'>
-                          <form onSubmit={handleSubmit(onSubmited)} encType="multipart/form-data" className="form3">
-                              <div className='flex flex-col'>
-                              <label>
-                                <input className="input1" type="text" {...register('nombre')} placeholder="" required />
-                                <span className='letra'>Nombre</span>
-                              </label>
-                              <div className="group">
-                                <textarea placeholder="‎" {...register('descripcion')} id="descripcion" name="descripcion" rows="5" required></textarea>
-                                <label htmlFor="comment">Descripción</label>
-                              </div>
-                              <label>
-                                <input className="input1" type="number" {...register('precio')} placeholder="" required />
-                                <span className='letra'>Precio</span>
-                              </label>
+                          <form onSubmit={handleSubmit(onSubmited)} encType="multipart/form-data" className="form3 flex flex-col ">
+                              <div className='formulario flex'>
+                                <div className='flex flex-col'>
+                                    <label>
+                                        <input className="input1" type="text" {...register('nombre')} placeholder="Nombre" required />
+                                    </label>
+                                    <div className="group">
+                                        <textarea placeholder="Descripción" {...register('descripcion')} id="descripcion" name="descripcion" rows="5"  required></textarea>
+                                    </div>
+                                    <label>
+                                        <input className="input1" type="number" {...register('precio')} placeholder="Precio" required />
+                                    </label>
+                                </div>
+                                <div className='imagenUrl '>
+                                    <label  className='imagenUrl text-[1.4rem] cursor-pointer '>
+                                        <input type='file' {...register('file')} name='file' className=' hidden' />
+                                        <BsCloudDownload id='icon' className='icono absolute' />
+                                    </label>
+                                 </div>
                               </div>
                               <div>
                                 <button className="boton1">Montar</button>
                               </div>
                           </form>
-                                <div className='imagenUrl  bg-[#ffffff49] relative'>
-                                    <label  className='imagenUrl text-[1.4rem] cursor-pointer '>
-                                        <input type='file' {...register('file')} name='file' className=' hidden' />
-                                        <BsCloudDownload id='icon' className='icono absolute' />
-                                    </label>
-                                </div>
                       </div>
                   </div>
               </div>

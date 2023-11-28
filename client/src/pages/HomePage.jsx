@@ -27,7 +27,7 @@ const images2 = [
 function HomePage(){
 
     const [titulos] = useTypewriter({
-        words: ['Blog-Art', `It's Art`],
+        words: ['Blog-Art'],
         loop: {},
         typeSpeed: 300,
         deleteSpeed: 100,
