@@ -1,9 +1,11 @@
 import emailjs from '@emailjs/browser';
 import { useState, useRef } from 'react';
+import {Toaster, toast} from 'sonner'
+import { RiMessage2Line } from "react-icons/ri";
 
 const ContactPage = () => {
     const form = useRef();
-    const [isMessageSent, setIsMessageSent] = useState(false);
+    const [isMessageSent,setIsMessageSent] = useState(false);
     const [formData, setFormData] = useState({
         user_name: '',
         user_email: '',
@@ -14,16 +16,15 @@ const ContactPage = () => {
         event.preventDefault();
 
         emailjs.sendForm('service_e6eetny', 'template_3g3tlpz', event.target, '7vT6E2K7VQYKM9rNN')
-            .then(response => {
-                console.log('Correo electrónico enviado:', response);
-                setIsMessageSent(true);
-                // Limpiar el contenido del formulario
-                setFormData({
-                    user_name: '',
-                    user_email: '',
-                    message: '',
-                });
-            })
+        .then(response => {
+            console.log('Correo electrónico enviado:', response);
+            setIsMessageSent(true);
+            setFormData({
+                user_name: '',
+                user_email: '',
+                message: '',
+            });
+        })
             .catch(error => console.error('Error de correo electrónico:', error));
     }
 
@@ -54,33 +55,39 @@ const ContactPage = () => {
                         </div>
 
                         {isMessageSent && (
-                            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-                                <strong className="font-bold">¡Mensaje enviado con éxito!</strong>
+                            <div className="">
+                                <strong className="font-bold"></strong>
                             </div>
                         )}
 
                         <form ref={form} onSubmit={sendEmail}>
                             <input
                                 className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
-                                type="text" placeholder="Nombre" name="user_name" value={formData.user_name} onChange={handleInputChange} />
+                                type="text" placeholder="Nombre" name="user_name" value={formData.user_name} onChange={handleInputChange} required/>
 
                             <input
                                 className="shadow mb-4 appearance-none border rounded w-full py-2 px-3 text-black bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
-                                type="email" placeholder="Email" name="user_email" value={formData.user_email} onChange={handleInputChange} />
+                                type="email" placeholder="Email" name="user_email" value={formData.user_email} onChange={handleInputChange} required/>
 
                             <textarea
                                 className="shadow mb-4 min-h-0 appearance-none border rounded h-64 w-full py-2 px-3 text-black bg-gradient-to-r from-neutral-400 to-stone-300 leading-tight focus:outline-none focus:shadow-outline placeholder-gray-600"
-                                type="text" placeholder="Escribe tu mensaje aquí..." name="message" style={{ height: "121px" }} value={formData.message} onChange={handleInputChange}></textarea>
+                                type="text" placeholder="Escribe tu mensaje aquí..." name="message" style={{ height: "121px" }} value={formData.message} onChange={handleInputChange} required></textarea>
 
                             <div className="flex justify-between">
-                                <input
+                                <input onClick={()=> {
+                                    toast('Mensaje enviado', {
+                                        description: "",
+                                        icon: <RiMessage2Line style={{ fontSize: "15px"}} />
+                                    })   
+                                }}
                                     className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                    type="submit" value="Send ➤" />
+                                    type="submit" value="Enviar ➤" />
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            <Toaster position="top-right" reverseOrder={false} />
         </>
     )
 }
