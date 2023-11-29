@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoute"
 import { CarritoProvider } from "./context/CarritoContext"
 import { AuthProvider } from "./context/AuthContext"
 import { ObraProvider } from "./context/ObrasContext";
+import { PaymentProvider } from "./context/PaymentContext.jsx"
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer.jsx"
 import ContactPage from "./pages/ContactPage"
@@ -23,26 +24,28 @@ function App ()
       <AuthProvider>
         <ObraProvider >
           <CarritoProvider>
-          <BrowserRouter>
-          <NavBar/>
-            <Routes>
-              <Route path="/" element={ <HomePage /> } />
-              <Route path="/login" element={ <LoginPage /> } />
-              <Route path="/register" element={ <RegisterPage /> } />
-              <Route path="/ObrasPublic" element={ <ObrasPublicPage /> } />
-              <Route path="/Contact" element={ <ContactPage /> } />
+            <PaymentProvider>
+              <BrowserRouter>
+              <NavBar/>
+                <Routes>
+                  <Route path="/" element={ <HomePage /> } />
+                  <Route path="/login" element={ <LoginPage /> } />
+                  <Route path="/register" element={ <RegisterPage /> } />
+                  <Route path="/ObrasPublic" element={ <ObrasPublicPage /> } />
+                  <Route path="/Contact" element={ <ContactPage /> } />
 
-              <Route element={ <ProtectedRoute /> }>
-                <Route path="/obras" element={ <ObrasPage /> } />
-                <Route path="/logout" element={ <LogoutPage /> } />
-                <Route path="/add-obra" element={ <ObrasFormPage /> } />
-                <Route path="/obras/:id" element={ <ObrasFormPage /> } />
-                <Route path="/profile" element={ <ProfilePage /> } />
-                <Route path="/carrito" element={<Carrito/>}/>
-              </Route>
-            </Routes>
-            <Footer/>
-          </BrowserRouter>
+                  <Route element={ <ProtectedRoute /> }>
+                    <Route path="/obras" element={ <ObrasPage /> } />
+                    <Route path="/logout" element={ <LogoutPage /> } />
+                    <Route path="/add-obra" element={ <ObrasFormPage /> } />
+                    <Route path="/obras/:id" element={ <ObrasFormPage /> } />
+                    <Route path="/profile" element={ <ProfilePage /> } />
+                    <Route path="/carrito" element={<Carrito/>}/>
+                  </Route>
+                </Routes>
+                <Footer/>
+              </BrowserRouter>
+            </PaymentProvider>
           </CarritoProvider>
         </ObraProvider>
       </AuthProvider>

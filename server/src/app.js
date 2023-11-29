@@ -3,6 +3,7 @@ import morgan from "morgan"
 import authRoutes from "./routes/auth.routes.js"
 import taskRoutes from "./routes/task.routes.js"
 import carrito from './routes/carrito.routes.js';
+import payment from './routes/payment.routes.js'
 import cookieParser from "cookie-parser"
 import cors from 'cors'
 import path from "path"
@@ -27,6 +28,6 @@ app.use('/uploads', express.static(uploadsPath));
 app.use( "/api", authRoutes )
 app.use( "/api", taskRoutes )
 app.use("/api", carrito)
-
+app.use("/api", payment)
 
 export default app

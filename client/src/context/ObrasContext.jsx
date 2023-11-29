@@ -19,6 +19,7 @@ export const useObras = () =>
     return context
 }
 
+// eslint-disable-next-line react/prop-types
 export function ObraProvider ( { children } ) {
     const [ obras, setObras ] = useState( [] )
 

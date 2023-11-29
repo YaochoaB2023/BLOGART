@@ -66,10 +66,10 @@ const ObrasPublicPage = () => {
 
   return (
     <>
-      <h1 className="mb-10 text-center text-3xl font-bold mt-5">Obras</h1>
+      <h1 className="mb-10 text-center text-3xl font-bold mt-24">Obras</h1>
         <div className='buscar flex'>
-              <input type="text" className="busqueda" value={busqueda} placeholder="Buscar" onChange={handleBusquedaChange}/>
-              <button className='icono3'>Buscar</button>
+              <input type="text" className="busqueda bg-white" value={busqueda} placeholder="Buscar" onChange={handleBusquedaChange}/>
+              <button className='icono3 text-white bg-teal-500 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300'>Buscar</button>
         </div>
           {!isAuthenticathed && mostrarParrafo && (
             <> 

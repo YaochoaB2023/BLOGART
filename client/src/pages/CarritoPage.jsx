@@ -1,9 +1,11 @@
 import { useCarrito } from "../context/CarritoContext";
+import { usePayment } from "../context/PaymentContext";
 import '../css/carrito.css';
 
 const Carrito = () => {
     const { carrito, precioTotal, deleteArteCarrito } = useCarrito();
-    console.log('carrito en pagina', carrito);
+    const { createOrder } = usePayment();
+    // console.log('carrito en pagina', carrito);
 
     const handledeleteArte = async (arteId) => {
         try {
@@ -13,6 +15,14 @@ const Carrito = () => {
             console.log(error)
         }
     }
+
+    const handleCheckout = async () => {
+        // Llamar a la función para crear la orden antes de redirigir a MercadoPago
+        await createOrder();
+        
+        // // Redirigir a la página de MercadoPago
+        // window.location.href = initPoint;
+      };
 
     return (
         <div>
@@ -63,7 +73,7 @@ const Carrito = () => {
                                 <p className="text-sm text-gray-700">incluye IVA</p>
                             </div>
                             </div>
-                            <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                            <button onClick={handleCheckout} className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
                         </div>
                         </div>
                     </div>
