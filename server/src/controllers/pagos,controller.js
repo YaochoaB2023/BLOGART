@@ -4,9 +4,12 @@ import Carrito from '../models/carrito.models.js';
 
 export const createOrder = async (req, res) => {
     try {
+
+        const userId = req.user;
         //obtener las obras de cada usuario
         const productosCarrito = await Carrito.find({
-        }).lean()
+            user: userId.id
+        }).populate('user').lean();
 
         // mapear en un array las obras del usuario 
         const Items = productosCarrito.map(producto => ({
