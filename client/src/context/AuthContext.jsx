@@ -68,7 +68,7 @@ export const AuthProvider = ( { children } ) => {
             console.log( res.data )
             setIsAuthenticathed( true )
             setUser( res.data )
-            showIniciar("Has iniciado sesion", "", "success");
+            showIniciar("Has iniciado seccion", "", "success");
         } catch ( error )
         {
             console.log( error )
@@ -96,7 +96,8 @@ export const AuthProvider = ( { children } ) => {
             await logoutRequest();
             setIsAuthenticathed(false);
             setUser(null);
-            showLogout("Has cerrado sesion","", "success");
+            showLogout("Has cerrado seccion","", "success");
+
         } catch (error) {
             console.error("error durin logout", error)
         }

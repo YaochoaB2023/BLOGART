@@ -8,14 +8,15 @@ const ObrasPage = () => {
   const { obras, getObras, updateObra, deleteObra } = useObras();
   const [isModalOpen, setModalOpen] = useState(null);
   const [selectedObra, setSelectedObra] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [busqueda, setBusqueda] = useState("");
+  const [resultadoBusqueda, setResultadoBusqueda] = useState([]);
 
   const [updatedData, setUpdatedData] = useState({
     nombre: "",
     descripcion: "",
     precio: 0,
   });
-
-  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     getObras();
@@ -36,6 +37,19 @@ const ObrasPage = () => {
     setSelectedObra(null);
     setModalOpen(false);
   };
+
+  const handleBusquedaChange = (event) => {
+    setBusqueda(event.target.value);
+    console.log("Busqueda: "+event.target.value);
+  }
+
+  useEffect(() => {
+    const filtrarObras = obras.filter((obra) => {
+      const obraValor = Object.values(obra).join('').toLowerCase();
+      return obraValor.includes(busqueda.toLowerCase());
+    });
+    setResultadoBusqueda(filtrarObras);
+  }, [obras, busqueda])
 
   const handleUpdateObra = async () => {
     try {
@@ -83,9 +97,13 @@ const ObrasPage = () => {
 
   return (
     <>
-    <h1 className="mb-10 text-center text-3xl font-bold mt-24">Mis Obras</h1>
+    <h1 className="mb-10 text-center text-3xl font-bold mt-5">Mis Obras</h1>
+    <div className="buscar flex">
+      <input type="text" className="busqueda" value={busqueda} placeholder="Buscar" onChange={handleBusquedaChange}/>
+      <button className='icono3'>Buscar</button>
+    </div>
       <div className="flex flex-wrap mt-10">
-        {obras.map((obra, index) => (
+        {resultadoBusqueda.map((obra, index) => (
           <div
             key={obra.id || index}
             className="max-w-sm mx-auto mb-4 rounded-lg shadow bg-gray-300 p-1"

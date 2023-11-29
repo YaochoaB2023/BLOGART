@@ -114,27 +114,15 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin: 0px;
+    position: absolute;
+    top: 460px;
 }
 
 .boton1:hover {
     background-color: #27408b;
 }
 
-.boton3{
-    margin-left: 138px;
-    background-color: #3366cc;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease
-}
-
-.boton3:hover{
-    background-color: #27408b;
-}
 
 .imagenUrl{
     display: flex;
@@ -143,6 +131,7 @@
     height: 367px;
     width: 350px;
     border-radius: 5px;
+    margin-left: 15px;
 
 }
 
@@ -152,3 +141,31 @@
     margin-top: 140px;
     font-size: 90px;
 }
+
+@media only screen and (max-width:768px) {
+    .card2 {
+        width: 100%;
+    }
+
+    .form3 .group input,
+    .form3 .group textarea,
+    .form3 label .input1 {
+        width: 100%;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imagenUrl{
+        margin-left: 0px;
+    }
+
+    .boton1 {
+        position: static;
+        top: auto;
+        margin-top: 20px;
+    }
+}
+

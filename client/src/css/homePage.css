@@ -25,6 +25,7 @@
 }
 
 .info, .info2{margin-top: 50px;}
+
 .info{
     margin-left: 20px;
     font-weight: 400;
@@ -98,4 +99,140 @@
     height: 250px;
     width: 500px;
     border-radius: 7px;
+}
+
+@media only screen and (max-width:600px) {
+    
+    .tutilo_blog{
+        width: 100%;
+        height: 601px;
+    }
+    
+    .h1_blog{
+        font-family: 'aton', sans-serif;
+        color: transparent;
+        font-size: 150px;
+        font-weight: 600;
+        background-image: url(../images/van-gogh.jpg);
+        background-clip: text;
+        font-weight: bold;
+        background-position-y: center ;
+        text-align: center;
+    }
+
+    .buton_a {
+        margin-top: 70px;
+        margin: 0px;
+        padding: 5px 15px;
+        border-radius: 3px;
+        position: absolute;
+        top: 570px;
+        left: 40%;
+        background-color: #0026ff; 
+        color: #fff;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+    
+    .buton_a:hover {
+        background-color: #5b6dd1;
+    }
+    
+    .cuadro-1{
+        display: flex;
+        justify-content: center;
+        display: none;
+        display: inline-block;
+        width: 490px;
+        height: 600px;
+        border: 1px solid  rgb(219, 233, 219) ;
+        margin: 0px;
+        margin-top: 20px;
+        margin-left: 40px;
+        padding: 50px;
+        border-radius: 15px;
+    }
+    
+    .titulo9{
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .texto{
+        width: 330px;
+        font-size: 15px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .cuadro-2{
+        display: flex;
+        justify-content: center;
+        display: none;
+        display: inline-block;
+        width: 490px;
+        height: 600px;
+        border: 1px solid  rgb(219, 233, 219) ;
+        margin: 0px;
+        margin-top: 20px;
+        margin-left: 40px;
+        padding: 50px;
+        border-radius: 15px;
+    }
+    
+    .carousel {
+        position: absolute;
+        left: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+        margin-top: 250px;
+        transition: transform 0.5s ease-in-out;
+    } 
+    
+    .carousel img {
+        height: 250px;
+        width: 450px;
+        border-radius: 7px;
+    }
+
+}
+
+@media only screen and (min-width: 600px) and (max-width: 991px) {
+    
+    .tutilo_blog{
+        width: 100%;
+        height: 601px;
+    }
+    
+    .h1_blog{
+        font-family: 'aton', sans-serif;
+        color: transparent;
+        font-size: 200px;
+        font-weight: 600;
+        background-image: url(../images/van-gogh.jpg);
+        background-clip: text;
+        font-weight: bold;
+        background-position-y: center ;
+        text-align: center;
+    }
+    
+    .cuadro-1{
+        width: 900px;
+        height: 320px;
+        border: 1px solid  rgb(219, 233, 219) ;
+        margin: 0px 10px 10px 40px ;
+        padding: 50px;
+        border-radius: 15px;
+    }
+    .cuadro-2{
+        width: 900px;
+        height: 320px;
+        border: 1px solid  rgb(219, 233, 219) ;
+        margin: 0px 10px 10px 40px ;
+        padding: 50px;
+        border-radius: 15px;
+    }
+    
 }

@@ -17,6 +17,7 @@ export const useCarrito = () => {
     return context;
 };
 
+
 // eslint-disable-next-line react/prop-types
 export function CarritoProvider({ children })  {
     const [carrito, setCarrito] = useState([]);
@@ -27,6 +28,29 @@ export function CarritoProvider({ children })  {
 
 
     // eslint-disable-next-line no-unused-vars
+    const showToast = (title, description) => {
+        toast.success(description, {
+          title: title,
+          description: description
+        });
+      };
+
+      const showCarrito = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <BsCart4 style={{fontSize: "15px"}}/>
+        });
+      };
+
+      const showEliminar = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <AiFillDelete style={{ fontSize: "15px"}}/>
+        });
+      };
+
     const showToast = (title, description) => {
         toast.success(description, {
           title: title,

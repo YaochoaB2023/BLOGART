@@ -9,6 +9,27 @@
     justify-content: center;
     align-items: center;
   }
+
+  .busqueda{
+    padding: 5px;
+    border: 1px solid black;
+    margin-left: 20px;
+    color: #000000;
+    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
+  }
+
+  .icono3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #000000;
+    background-color: cadetblue;
+    height: 37px;
+    width: 90px;
+    border-radius: 0px 5px 5px 0px;
+  }
   
   .card22{
     display: flex;
@@ -157,4 +178,12 @@
     color: rgb(31, 30, 30);
     margin-top: 140px;
     font-size: 90px;
+}
+
+
+@media only screen and (max-width:600px) {
+    .buscar{
+        margin-left: 80px;
+        
+    }
 }
