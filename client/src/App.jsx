@@ -9,7 +9,7 @@ import HomePage from "./pages/HomePage"
 import Carrito from "./pages/CarritoPage.jsx"
 import ProtectedRoute from "./ProtectedRoute"
 import { CarritoProvider } from "./context/CarritoContext"
-import { AuthProvider } from "./context/authContext"
+import { AuthProvider } from "./context/AuthContext"
 import { ObraProvider } from "./context/ObrasContext";
 import NavBar from "./components/NavBar"
 import Footer from "./components/Footer.jsx"

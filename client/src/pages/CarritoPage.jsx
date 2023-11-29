@@ -18,10 +18,10 @@ const Carrito = () => {
         <div>
             {carrito.length <= 0 ? (    
             
-                <h1 className="mb-10 mt-10 text-center text-2xl font-bold">Carrito Vacio</h1>
+                <h1 className="mb-10 mt-28 text-center text-2xl font-bold">Carrito Vacio</h1>
 
             ) : (
-                <div className="Carrito">
+                <div className="Carrito mt-16">
                     <div className="h-full pt-10">
                         <h1 className="mb-10 text-center text-2xl font-bold">Articulos del Carrito</h1>
                         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">

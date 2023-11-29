@@ -97,7 +97,6 @@ const ObrasPage = () => {
 
   return (
     <>
-
     <h1 className="mb-10 text-center text-3xl font-bold mt-5">Mis Obras</h1>
     <div className="buscar flex">
       <input type="text" className="busqueda" value={busqueda} placeholder="Buscar" onChange={handleBusquedaChange}/>

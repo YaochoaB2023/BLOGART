@@ -35,7 +35,7 @@ function HomePage(){
 
     return(
         <>
-        <div className="Inicio">
+        <div className="Inicio mt-10">
             <div className='contenedor'>
             <div className='flex flex-col'>
                 <div className='tutilo_blog'>

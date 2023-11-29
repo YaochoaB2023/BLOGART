@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext.jsx';
 import {getCarritoArteRequest, createCarritoArteRequest, deleteArteRequest} from '../api/carrito.js';
 import { Toaster,  toast } from 'sonner';
 import {BsCart4} from 'react-icons/bs';
@@ -7,6 +8,7 @@ import { AiFillDelete } from "react-icons/ai";
 
 const CarritoContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCarrito = () => {
     const context = useContext(CarritoContext);
     if (!context) {
@@ -15,9 +17,39 @@ export const useCarrito = () => {
     return context;
 };
 
+
+// eslint-disable-next-line react/prop-types
 export function CarritoProvider({ children })  {
     const [carrito, setCarrito] = useState([]);
     const [precioTotal, setPrecioTotal] = useState(0);
+    const { user } = useAuth();
+
+
+
+
+    // eslint-disable-next-line no-unused-vars
+    const showToast = (title, description) => {
+        toast.success(description, {
+          title: title,
+          description: description
+        });
+      };
+
+      const showCarrito = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <BsCart4 style={{fontSize: "15px"}}/>
+        });
+      };
+
+      const showEliminar = (title, description) => {
+        toast(description, {
+          title: title,
+          description: description,
+          icon: <AiFillDelete style={{ fontSize: "15px"}}/>
+        });
+      };
 
     const showToast = (title, description) => {
         toast.success(description, {
@@ -46,10 +78,15 @@ export function CarritoProvider({ children })  {
         const cargarCarrito = async () => {
             try {
                 const res = await getCarritoArteRequest();
+    
                 if (Array.isArray(res.data.arteCarrito)) {
-                    const carritoFiltrado = res.data.arteCarrito.filter((producto) => producto.cantidad > 0);
+                    const carritoFiltrado = res.data.arteCarrito.filter(
+                        (producto) => producto.cantidad > 0 
+                    );
+    
                     setCarrito(carritoFiltrado);
                     calcularPrecioTotal(carritoFiltrado);
+                    console.log('usuario', user);
                     console.log('Datos del carrito:', res.data.arteCarrito);
                 } else {
                     console.log('arteCarrito no es un array válido en la respuesta:', res.data);
@@ -60,7 +97,7 @@ export function CarritoProvider({ children })  {
         };
     
         cargarCarrito();
-    }, []);
+    }, [user]);
     
 
     useEffect(() => {

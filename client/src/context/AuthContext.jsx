@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
-import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest } from "../api/auth";
+import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest, getProfileRequest } from "../api/auth";
 import Cookies from 'js-cookie'
 import { Toaster,  toast } from 'sonner';
 import { PiSignIn } from "react-icons/pi";
@@ -81,12 +81,23 @@ export const AuthProvider = ( { children } ) => {
         }
     }
 
+    const getProfileUser = async () => {
+        try {
+            const res = await getProfileRequest();
+            setUser(res.data);
+            console.log('Perfil del usuario:', res.data);
+        } catch (error) {
+            console.error('Error al obtener el perfil del usuario:', error);
+        }
+    };
+
     const logOut = async () => {
         try {
             await logoutRequest();
             setIsAuthenticathed(false);
             setUser(null);
             showLogout("Has cerrado seccion","", "success");
+
         } catch (error) {
             console.error("error durin logout", error)
         }
@@ -150,6 +161,7 @@ export const AuthProvider = ( { children } ) => {
             isAuthenticathed,
             errors,
             loading,
+            getProfileUser
             
         } }>
             <Toaster position="top-right" reverseOrder={false} />

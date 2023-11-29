@@ -28,7 +28,7 @@ const ObraFormPage = () => {
 
     return (
         <>
-            <div className='FormularioObras'>
+            <div className='FormularioObras mt-20'>
                   <div className=''>
                   <h1 className="mb-10 text-center text-3xl font-bold mt-5">Subir Obra</h1>
                       <div className='card2 flex'>
