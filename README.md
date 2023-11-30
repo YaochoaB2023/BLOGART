@@ -15,7 +15,7 @@ The All Art Store
 - **Perfil Personalizado:** Cada usuario tiene la oportunidad de personalizar su perfil, ajustando su nombre de usuario, correo personal y foto de perfil. 
 - **Funcionalidad de Vendedor:** Conviértete en un vendedor y exhibe tus creaciones para que otros las descubran. Sube imágenes de alta calidad, describe tu obra en detalle y establece el precio de venta.
 - **Edición de Obras de Arte:** ¿Cambios en tu obra? ¡No hay problema! Los vendedores pueden editar la información de sus obras en cualquier momento, asegurando que siempre estén actualizadas.
-- **Pasarela de Pagos Segura:** Ofrecemos una pasarela de pagos segura a través de [Mercadopago](https://www.mercadopago.com.co/), facilitando transacciones rápidas y seguras para compradores y vendedores.
+- **Pasarela de Pagos Segura:** Ofrecemos una pasarela de pagos segura a través de [Mercado Pago](https://www.mercadopago.com.co/), facilitando transacciones rápidas y seguras para compradores y vendedores.
 
 ## Tecnologías Utilizadas
 
