@@ -11,3 +11,5 @@ export const logoutRequest = () => axios.post( `/logout` )
 export const verifyTokenRequest = () => axios.get(`/verify` )
 
 export const getProfileRequest = () => axios.get('/profile');
+
+export const updateProfileRequest = (userData) => axios.put('/updateUser', userData);

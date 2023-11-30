@@ -9,6 +9,7 @@ export const registerSchema = z.object( {
     } ).email( {
         message: "Invalid Email Address"
     } ),
+    Urlimagen: z.string().optional(),
     password: z.string( {
         required_error: "Password is required field"
     } ).min( 5, {

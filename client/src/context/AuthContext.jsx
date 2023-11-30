@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 
-import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest, getProfileRequest } from "../api/auth";
+import { loginRequest, logoutRequest , registerRequest, verifyTokenRequest, getProfileRequest, updateProfileRequest } from "../api/auth";
 import Cookies from 'js-cookie'
 import { Toaster,  toast } from 'sonner';
 import { PiSignIn } from "react-icons/pi";
@@ -80,6 +80,17 @@ export const AuthProvider = ( { children } ) => {
 
         }
     }
+
+    const updateProfile = async (userData) => {
+        try {
+            const res = await updateProfileRequest(userData);
+            setUser(res.data.updatedUser);
+            showIniciar("Perfil actualizado", "", "success");
+        } catch (error) {
+            console.error('Error al actualizar el perfil del usuario:', error);
+        }
+    };
+    
 
     const getProfileUser = async () => {
         try {
@@ -161,7 +172,8 @@ export const AuthProvider = ( { children } ) => {
             isAuthenticathed,
             errors,
             loading,
-            getProfileUser
+            getProfileUser,
+            updateProfile
             
         } }>
             <Toaster position="top-right" reverseOrder={false} />

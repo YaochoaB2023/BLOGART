@@ -67,6 +67,32 @@ export const login = async ( req, res ) =>
 
 }
 
+export const updateUser = async (req, res) => {
+    try {
+    const { username, email } = req.body;
+    const imageUrl = req.file ? req.file.path : null;
+    
+    const updatedUser = await User.findByIdAndUpdate(
+        req.user.id,
+        {
+        username,
+        email,
+        imageUrl,
+        },
+        { new: true }
+    );
+
+    if (!updatedUser) {
+        return res.status(404).json({ message: "User not Found" });
+    }
+
+    res.status(201).json({updatedUser});
+    } catch (error) {
+    console.error("Error updating user", error);
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+};
+
 export const logout = ( req, res ) =>
 {
     res.cookie( "token", "", {
@@ -84,7 +110,8 @@ export const profile = async ( req, res ) =>
     res.status( 201 ).json( {
         id: userFound._id,
         username: userFound.username,
-        email: userFound.email
+        email: userFound.email,
+        imageUrl: userFound.imageUrl
     } )
 }
 

@@ -18,7 +18,7 @@ function RegisterPage ()
 
     useEffect( () =>
     {
-        if ( isAuthenticathed ) navigate( '/obras' );
+        if ( isAuthenticathed ) navigate( '/profile' );
     }, [ isAuthenticathed, navigate ] )
 
     const onSubmited = handleSubmit( async ( values ) =>

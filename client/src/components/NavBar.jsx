@@ -35,7 +35,11 @@ const NavBar = () => {
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-300" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom" >
               <span className="sr-only">Open user menu</span>
-              <img className="w-12 h-12 rounded-full" src={logo2} alt="user photo" />
+              {isAuthenticathed && (
+                
+                <img className="object-cover object-center w-12 h-12 rounded-full"  src={user.imageUrl ? `http://localhost:5000/${user.imageUrl}` : {logo2}} alt="user photo" />
+                
+              )}
             </button>
             <div className="z-50 hidden my-4 text-base list-none bg-gray-300 divide-y divide-gray-400 rounded-lg" id="user-dropdown">
               {isAuthenticathed && (
