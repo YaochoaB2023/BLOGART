@@ -11,7 +11,7 @@ The All Art Store
 
 ## Características Destacadas
 
-- **Compra y Venta de Obras de Arte:** Explora una amplia variedad de obras de arte únicas y auténticas, creadas por artistas talentosos de todo el mundo. Tanto si eres un entusiasta del arte como si eres un artista emergente, encontrarás el espacio perfecto para comprar y vender tus obras.
+- **Compra y Venta de Obras de Arte:** Explora una amplia variedad de obras de arte únicas y auténticas, creadas por artistas talentosos. Tanto si eres un entusiasta del arte como si eres un artista emergente, encontrarás el espacio perfecto para comprar y vender tus obras.
 - **Perfil Personalizado:** Cada usuario tiene la oportunidad de personalizar su perfil, mostrando su personalidad y estilo. Agrega una biografía, enlaza tus redes sociales y destaca tus obras favoritas.
 - **Funcionalidad de Vendedor:** Conviértete en un vendedor y exhibe tus creaciones para que otros las descubran. Sube imágenes de alta calidad, describe tu obra en detalle y establece el precio de venta.
 - **Edición de Obras de Arte:** ¿Cambios en tu obra? ¡No hay problema! Los vendedores pueden editar la información de sus obras en cualquier momento, asegurando que siempre estén actualizadas.
