@@ -4,7 +4,7 @@ Descripción corta o eslogan del proyecto.
 
 ## Captura de Pantalla
 
-![Captura de Pantalla](ruta/a/tu/captura-de-pantalla.png)
+![Captura de Pantalla](https://github.com/YaochoaB2023/BLOGART/assets/127530521/903f0024-111b-43fc-a552-b4ef6b0f6dbc)
 
 ## Descripción
 
