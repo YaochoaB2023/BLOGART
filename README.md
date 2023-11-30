@@ -1,23 +1,27 @@
-# Nombre del Proyecto
+# Proyecto "BLOG ART"
 
-Descripción corta o eslogan del proyecto.
+The All Art Store
+***
+¡Bienvenido a Blog Art, tu destino para la exploración y comercio de arte en línea! Esta plataforma única ofrece a sus usuarios la experiencia única de ser tanto compradores como vendedores, abriendo un mundo de posibilidades creativas y comerciales.
 
 ## Captura de Pantalla
 
 ![Captura de Pantalla](https://github.com/YaochoaB2023/BLOGART/assets/127530521/903f0024-111b-43fc-a552-b4ef6b0f6dbc)
+![Captura de Pantalla](https://github.com/YaochoaB2023/BLOGART/assets/127530521/8d65c002-7a1f-4bf1-8d06-7f773b1daa12)
 
-## Descripción
+## Características Destacadas
 
-Breve descripción del proyecto y su propósito.
-
-## Características
-
-- Lista de características importantes.
-- Puedes agregar tantos puntos como desees.
+- **Compra y Venta de Obras de Arte:** Explora una amplia variedad de obras de arte únicas y auténticas, creadas por artistas talentosos de todo el mundo. Tanto si eres un entusiasta del arte como si eres un artista emergente, encontrarás el espacio perfecto para comprar y vender tus obras.
+- **Perfil Personalizado:** Cada usuario tiene la oportunidad de personalizar su perfil, mostrando su personalidad y estilo. Agrega una biografía, enlaza tus redes sociales y destaca tus obras favoritas.
+- **Funcionalidad de Vendedor:** Conviértete en un vendedor y exhibe tus creaciones para que otros las descubran. Sube imágenes de alta calidad, describe tu obra en detalle y establece el precio de venta.
+- **Edición de Obras de Arte:** ¿Cambios en tu obra? ¡No hay problema! Los vendedores pueden editar la información de sus obras en cualquier momento, asegurando que siempre estén actualizadas.
+- **Pasarela de Pagos Segura:** Ofrecemos una pasarela de pagos segura a través de MercadoPago, facilitando transacciones rápidas y seguras para compradores y vendedores.
 
 ## Tecnologías Utilizadas
 
-- Lista de tecnologías principales utilizadas en el proyecto.
+- Frontend: [React Vite](https://es.react.dev/](https://vitejs.dev/guide/))
+- Backend: [Node.js](https://nodejs.org/en) con [Express](https://expressjs.com/)
+- Base de Datos: [MongoDB](https://www.mongodb.com/es)
 
 ## Instalación
 
