@@ -56,4 +56,5 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 - Nombre: Sebastian Vallejo Montoya
 - Correo Electrónico: [svallejo269@gmail.com](svallejo269@gmail.com)
 - Correo corporativo: [galleryblogart@gmail.com](galleryblogart@gmail.com)
-
+  
+¡Esperamos que disfrutes explorando y creando en **Blog Art**! Arte, creatividad y comunidad se unen en esta emocionante plataforma.
