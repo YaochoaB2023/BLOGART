@@ -76,8 +76,8 @@ const ContactPage = () => {
                             <div className="flex justify-between">
                                 <input onClick={()=> {
                                     toast('Mensaje enviado', {
-                                        description: "",
-                                        icon: <RiMessage2Line style={{ fontSize: "15px"}} />
+                                        description: "su mensaje fue enviado",
+                                        icon: <RiMessage2Line style={{ fontSize: "15px", color: "black"}} />
                                     })   
                                 }}
                                     className="shadow bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

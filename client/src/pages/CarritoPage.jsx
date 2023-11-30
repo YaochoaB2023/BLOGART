@@ -73,7 +73,7 @@ const Carrito = () => {
                                 <p className="text-sm text-gray-700">incluye IVA</p>
                             </div>
                             </div>
-                            <button onClick={handleCheckout} className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                            <button onClick={handleCheckout} className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Pagar</button>
                         </div>
                         </div>
                     </div>
