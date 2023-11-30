@@ -25,14 +25,19 @@ The All Art Store
 
 ## Instalación
 
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/tu-proyecto.git`
-2. Ingresa al directorio del proyecto: `cd tu-proyecto`
-3. Instala las dependencias: `npm install`
+1. Clona el repositorio: `https://github.com/YaochoaB2023/BLOGART.git`
+2. Ingresa al directorio del proyecto: `cd BLOGART`
+3. Ingresar a la carpeta server`cd server`
+4. Instala las dependencias: `npm instal`
+5. De igual manera en la carpeta client: `cd client`
+6. Instala las dependencias: `npm instal`
+
 
 ## Uso
 
-1. Ejecuta la aplicación: `npm start`
-2. Abre tu navegador y visita `http://localhost:3000` (o el puerto que esté configurado).
+1. Ejecuta el Servidor: `npm run dev`
+2. Ejecuta el Cliente: `npm run dev`
+3. Abre tu navegador y visita `http://localhost:5173/`
 
 ## Contribuir
 
@@ -44,12 +49,11 @@ Si deseas contribuir a este proyecto, sigue estos pasos:
 4. Envía tus cambios: `git push origin feature/nueva-funcionalidad`
 5. Abre un Pull Request en GitHub
 
-## Licencia
+## Contacto de los Desarrolladores
 
-Este proyecto está bajo la Licencia [Nombre de la Licencia]. Consulta el archivo `LICENSE.md` para obtener más detalles.
-
-## Contacto
-
-- Nombre: Tu Nombre
-- Correo Electrónico: tu@email.com
+- Nombre: Yeison Alberto Ochoa Bautista
+- Correo Electrónico: [ochoabautistayeisonalberto@gmail.com](ochoabautistayeisonalberto@gmail.com)
+- Nombre: Sebastian Vallejo Montoya
+- Correo Electrónico: [svallejo269@gmail.com](svallejo269@gmail.com)
+- Correo corporativo: [galleryblogart@gmail.com](galleryblogart@gmail.com)
 
