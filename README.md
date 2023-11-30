@@ -37,7 +37,7 @@ The All Art Store
 
 1. Ejecuta el Servidor: `npm run dev`
 2. Ejecuta el Cliente: `npm run dev`
-3. Abre tu navegador y visita `http://localhost:5173/`
+3. Abre tu navegador y visita `http://localhost:5173/` (o el puerto que se asigne en la consola).
 
 ## Contribuir
 
