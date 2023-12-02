@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "655b11ad9be37f6e9d7574b0"
+  },
+  "nombre": "Capital Gate",
+  "descripcion": "Torre Inclinada de Abu Dhabi",
+  "Urlimagen": "uploads\\1700467117858-hyatt-andaz-capital-gate.jpg",
+  "precio": 50,
+  "date": {
+    "$date": "2023-11-20T07:58:37.887Z"
+  },
+  "user": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "createdAt": {
+    "$date": "2023-11-20T07:58:37.888Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-29T16:19:50.689Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "655b121a9be37f6e9d7574c2"
+  },
+  "nombre": "Maserati",
+  "descripcion": "Maserati rojo del juego Gran Turismo",
+  "Urlimagen": "uploads\\1700467226593-maserati-rojo-gran-turismo-trofeo.jpg",
+  "precio": 1000,
+  "date": {
+    "$date": "2023-11-20T08:00:26.618Z"
+  },
+  "user": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "createdAt": {
+    "$date": "2023-11-20T08:00:26.620Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-01T21:04:43.751Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "655b12989be37f6e9d7574d0"
+  },
+  "nombre": "Star Wars ",
+  "descripcion": "Batalla en el Espacio",
+  "Urlimagen": "uploads\\1700467352691-batalla-en-el-espacio.jpg",
+  "precio": 20000,
+  "date": {
+    "$date": "2023-11-20T08:02:32.729Z"
+  },
+  "user": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "createdAt": {
+    "$date": "2023-11-20T08:02:32.730Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-30T12:25:55.528Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "655b135a9be37f6e9d7574ef"
+  },
+  "nombre": "Zorro",
+  "descripcion": "Zorro Saltando en la Pradera",
+  "Urlimagen": "uploads\\1700467546850-zorro-saltando_.jpg",
+  "precio": 40000,
+  "date": {
+    "$date": "2023-11-20T08:05:46.861Z"
+  },
+  "user": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "createdAt": {
+    "$date": "2023-11-20T08:05:46.862Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-30T12:26:59.567Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "655b13909be37f6e9d7574f9"
+  },
+  "nombre": "One Piece",
+  "descripcion": "Luffy, Sanji y Zoro",
+  "Urlimagen": "uploads\\1700467600721-luffy-sanji-y-zoro-de-one-piece.jpg",
+  "precio": 150000,
+  "date": {
+    "$date": "2023-11-20T08:06:40.752Z"
+  },
+  "user": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "createdAt": {
+    "$date": "2023-11-20T08:06:40.753Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-29T16:00:20.562Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "656a4aced85f7f89a00464b9"
+  },
+  "nombre": "one piece ",
+  "descripcion": "es muy bueno ",
+  "Urlimagen": "uploads\\1701464810238-onepiece.jpe",
+  "precio": 800000,
+  "date": {
+    "$date": "2023-12-01T21:06:22.503Z"
+  },
+  "user": {
+    "$oid": "656886a217c2e3717a2c5f8a"
+  },
+  "createdAt": {
+    "$date": "2023-12-01T21:06:22.505Z"
+  },
+  "updatedAt": {
+    "$date": "2023-12-01T21:06:50.426Z"
+  },
+  "__v": 0
+}]

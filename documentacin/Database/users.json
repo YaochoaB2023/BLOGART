@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "6554d840163c387d653a6551"
+  },
+  "username": "Yeison Ochoa",
+  "email": "ochoabautistayeisonalberto@gmail.com",
+  "password": "$2a$10$bZRK9gO3u/.aF4AJlQnLQuXIvBaQ391Lsoa4taFnGUTLeUVCkxCc2",
+  "createdAt": {
+    "$date": "2023-11-15T14:40:00.170Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-30T05:01:20.505Z"
+  },
+  "__v": 0,
+  "imageUrl": "uploads\\1701320480502-2.jpg"
+},{
+  "_id": {
+    "$oid": "6567571245b283b58727c410"
+  },
+  "username": "sebastian",
+  "email": "svallejo269@gmail.com",
+  "password": "$2a$10$OoLy1U5xeIDxSllFO.C.QO4D6UcywA9/FhuxFLe3ecdWyf6t2ERVW",
+  "createdAt": {
+    "$date": "2023-11-29T15:21:54.088Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-30T10:32:24.189Z"
+  },
+  "__v": 0,
+  "imageUrl": "uploads\\1701340344170-onepiece.jpe"
+},{
+  "_id": {
+    "$oid": "656886a217c2e3717a2c5f8a"
+  },
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$82xBfIWS7IMm4U72hknHyO7eF86isiFPZEPxNsNuy0BwwCDHuLILe",
+  "createdAt": {
+    "$date": "2023-11-30T12:57:06.340Z"
+  },
+  "updatedAt": {
+    "$date": "2023-11-30T12:57:43.495Z"
+  },
+  "__v": 0,
+  "imageUrl": "uploads\\1701349062198-onepiece.jpe"
+}]

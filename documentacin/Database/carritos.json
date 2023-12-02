@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6568872c17c2e3717a2c5faf"
+  },
+  "nombre": "Star Wars ",
+  "Urlimagen": "uploads\\1700467352691-batalla-en-el-espacio.jpg",
+  "cantidad": 1,
+  "precio": 20000,
+  "user": {
+    "$oid": "656886a217c2e3717a2c5f8a"
+  },
+  "__v": 0
+}]
