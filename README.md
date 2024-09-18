@@ -19,7 +19,7 @@ The All Art Store
 
 ## Tecnologías Utilizadas
 
-- Frontend: [React Vite](https://es.react.dev/](https://vitejs.dev/guide/))
+- Frontend: [React Vite](https://vitejs.dev/)
 - Backend: [Node.js](https://nodejs.org/en) con [Express](https://expressjs.com/)
 - Base de Datos: [MongoDB](https://www.mongodb.com/es)
 
